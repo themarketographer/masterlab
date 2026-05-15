@@ -1,0 +1,912 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MasterLabs — Septiembre 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+
+:root{
+  --bg:#0D0D0D;
+  --surface:#141414;
+  --surface2:#1A1A1A;
+  --yellow:#F4D122;
+  --yellow-dim:rgba(244,209,34,0.12);
+  --yellow-glow:rgba(244,209,34,0.25);
+  --white:#F5F5F2;
+  --muted:rgba(245,245,242,0.45);
+  --border:rgba(245,245,242,0.08);
+  --border-yellow:rgba(244,209,34,0.25);
+  --r:12px;
+}
+
+html{scroll-behavior:smooth}
+
+body{
+  font-family:'Syne',sans-serif;
+  background:var(--bg);
+  color:var(--white);
+  font-size:16px;
+  line-height:1.6;
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+}
+
+/* ─── NAV ─── */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  padding:1rem 2rem;
+  display:flex;justify-content:space-between;align-items:center;
+  background:rgba(13,13,13,0.85);
+  backdrop-filter:blur(12px);
+  border-bottom:0.5px solid var(--border);
+}
+.nav-logo{
+  font-family:'Syne',sans-serif;
+  font-size:1.15rem;
+  font-weight:700;
+  letter-spacing:-0.01em;
+  color:var(--white);
+  text-decoration:none;
+  flex-shrink:0;
+}
+.logo-lab{color:var(--yellow)}
+.footer-logo{
+  font-family:'Syne',sans-serif;
+  font-size:0.9rem;
+  font-weight:700;
+  letter-spacing:-0.01em;
+  color:rgba(245,245,242,0.3);
+}
+.nav-right{display:flex;align-items:center;gap:1.5rem}
+.nav-link{
+  font-size:0.75rem;letter-spacing:0.1em;text-transform:uppercase;
+  color:var(--muted);text-decoration:none;font-weight:400;
+  transition:color 0.2s;
+}
+.nav-link:hover{color:var(--white)}
+.nav-cta{
+  background:var(--yellow);color:var(--bg);
+  border:none;padding:0.6rem 1.4rem;
+  font-family:'Syne',sans-serif;font-size:0.72rem;
+  letter-spacing:0.1em;text-transform:uppercase;
+  cursor:pointer;border-radius:100px;font-weight:700;
+  text-decoration:none;display:inline-block;
+  transition:all 0.2s;
+  box-shadow:0 0 0 0 var(--yellow-glow);
+}
+.nav-cta:hover{
+  box-shadow:0 0 20px 4px var(--yellow-glow);
+  transform:translateY(-1px);
+}
+
+/* ─── HERO ─── */
+.hero{
+  min-height:100svh;
+  padding:clamp(5rem,12vw,9rem) clamp(1.25rem,5vw,3rem) clamp(3rem,6vw,5rem);
+  display:flex;flex-direction:column;justify-content:flex-end;
+  position:relative;overflow:hidden;
+}
+
+.hero-bg-number{
+  position:absolute;right:-1%;top:50%;transform:translateY(-50%);
+  font-family:'Playfair Display',serif;
+  font-size:clamp(10rem,30vw,28rem);
+  font-weight:700;font-style:italic;
+  color:rgba(244,209,34,0.04);
+  line-height:1;user-select:none;pointer-events:none;
+  letter-spacing:-0.03em;white-space:nowrap;
+}
+
+.badge{
+  display:inline-flex;align-items:center;gap:0.5rem;
+  background:var(--yellow-dim);
+  border:0.5px solid var(--border-yellow);
+  color:var(--yellow);
+  font-size:0.68rem;letter-spacing:0.15em;text-transform:uppercase;
+  padding:0.4rem 0.9rem;border-radius:100px;font-weight:500;
+  margin-bottom:1.75rem;width:fit-content;
+}
+.badge::before{content:"●";font-size:0.5rem;animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:0.3}}
+
+.hero-eyebrow{
+  font-size:0.72rem;letter-spacing:0.18em;text-transform:uppercase;
+  color:var(--muted);margin-bottom:1.25rem;font-weight:400;
+}
+
+.hero-title{
+  font-family:'Syne',sans-serif;
+  font-size:clamp(2.6rem,7vw,6.5rem);
+  font-weight:700;
+  line-height:1.02;
+  letter-spacing:-0.02em;
+  color:var(--white);
+  margin-bottom:1.5rem;
+}
+.hero-title .serif-accent{
+  font-family:'Playfair Display',serif;
+  font-style:italic;
+  font-weight:400;
+  color:var(--yellow);
+  text-shadow:0 0 40px rgba(244,209,34,0.35);
+}
+
+.hero-subtitle{
+  font-size:clamp(0.9rem,1.6vw,1.05rem);
+  color:var(--muted);
+  max-width:520px;
+  margin-bottom:2.5rem;
+  font-weight:400;
+  line-height:1.8;
+}
+
+.hero-cta-row{
+  display:flex;flex-wrap:wrap;gap:0.85rem;align-items:center;
+  margin-bottom:3.5rem;
+}
+
+.btn-yellow{
+  background:var(--yellow);color:var(--bg);
+  border:none;padding:0.9rem 2.4rem;
+  font-family:'Syne',sans-serif;font-size:0.78rem;
+  letter-spacing:0.1em;text-transform:uppercase;font-weight:700;
+  cursor:pointer;border-radius:100px;
+  text-decoration:none;display:inline-block;
+  transition:all 0.2s;
+  box-shadow:0 0 0 0 var(--yellow-glow);
+}
+.btn-yellow:hover{
+  box-shadow:0 0 28px 6px var(--yellow-glow);
+  transform:translateY(-2px);
+}
+
+.btn-outline{
+  background:transparent;color:var(--muted);
+  border:0.5px solid var(--border);
+  padding:0.9rem 2rem;
+  font-family:'Syne',sans-serif;font-size:0.78rem;
+  letter-spacing:0.08em;text-transform:uppercase;
+  cursor:pointer;border-radius:100px;
+  text-decoration:none;display:inline-block;
+  transition:all 0.2s;
+}
+.btn-outline:hover{border-color:var(--border-yellow);color:var(--white)}
+
+.hero-stats{
+  display:flex;flex-wrap:wrap;gap:2.5rem;
+  padding-top:2.5rem;
+  border-top:0.5px solid var(--border);
+}
+.stat-item .stat-num{
+  font-family:'Playfair Display',serif;
+  font-size:2rem;font-weight:700;
+  color:var(--yellow);
+  text-shadow:0 0 20px rgba(244,209,34,0.3);
+  line-height:1;margin-bottom:0.3rem;
+}
+.stat-item .stat-label{
+  font-size:0.72rem;letter-spacing:0.1em;text-transform:uppercase;
+  color:var(--muted);font-weight:400;
+}
+
+/* ─── MARQUEE ─── */
+.marquee-wrap{
+  overflow:hidden;border-top:0.5px solid var(--border);
+  border-bottom:0.5px solid var(--border);
+  padding:0.9rem 0;background:var(--surface);
+}
+.marquee-track{
+  display:flex;gap:0;white-space:nowrap;
+  animation:marquee 18s linear infinite;
+}
+@keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.marquee-item{
+  font-size:0.7rem;letter-spacing:0.18em;text-transform:uppercase;
+  color:var(--muted);padding:0 2.5rem;flex-shrink:0;font-weight:400;
+}
+.marquee-item.accent{color:var(--yellow)}
+
+/* ─── SECTION SHARED ─── */
+section{padding:clamp(3.5rem,8vw,6rem) clamp(1.25rem,5vw,3rem)}
+
+.eyebrow{
+  font-size:0.68rem;letter-spacing:0.2em;text-transform:uppercase;
+  color:var(--yellow);margin-bottom:0.75rem;font-weight:500;
+  display:block;
+}
+.section-title{
+  font-family:'Syne',sans-serif;
+  font-size:clamp(1.9rem,4vw,3.2rem);
+  font-weight:700;line-height:1.1;
+  color:var(--white);margin-bottom:1rem;
+}
+.section-title .si{
+  font-family:'Playfair Display',serif;
+  font-style:italic;font-weight:400;
+  color:var(--yellow);
+  text-shadow:0 0 30px rgba(244,209,34,0.3);
+}
+.section-intro{
+  font-size:0.9rem;color:var(--muted);
+  max-width:540px;line-height:1.8;
+}
+
+/* ─── PROBLEMA ─── */
+.problem-section{background:var(--surface)}
+.problem-inner{
+  max-width:1100px;margin:0 auto;
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:4rem;align-items:center;
+}
+@media(max-width:700px){.problem-inner{grid-template-columns:1fr;gap:2rem}}
+.problem-left .big-q{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(3rem,8vw,6rem);
+  font-weight:700;font-style:italic;
+  color:var(--yellow);
+  text-shadow:0 0 60px rgba(244,209,34,0.3);
+  line-height:1;margin-bottom:1.5rem;
+}
+.problem-right p{
+  font-size:clamp(0.92rem,1.4vw,1rem);
+  color:var(--muted);line-height:1.85;
+  margin-bottom:1.25rem;
+}
+.problem-right p strong{color:var(--white);font-weight:500}
+.problem-right p em{
+  color:var(--yellow);font-style:normal;
+  text-shadow:0 0 15px rgba(244,209,34,0.2);
+}
+
+/* ─── LINEUP ─── */
+.lineup-section{background:var(--bg)}
+.lineup-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+  gap:1px;
+  background:var(--border);
+  border:0.5px solid var(--border);
+  max-width:1100px;margin:3rem auto 0;
+}
+.person-card{
+  background:var(--bg);padding:2rem 1.75rem;
+  transition:background 0.25s;cursor:default;
+}
+.person-card:hover{background:var(--surface2)}
+.person-role{
+  font-size:0.63rem;letter-spacing:0.18em;text-transform:uppercase;
+  color:var(--yellow);margin-bottom:0.6rem;font-weight:500;
+}
+.person-name{
+  font-family:'Syne',sans-serif;
+  font-size:1.5rem;font-weight:700;
+  line-height:1;margin-bottom:0.4rem;color:var(--white);
+}
+.person-flag{font-size:0.8rem;color:var(--muted);margin-bottom:1rem}
+.person-desc{font-size:0.82rem;color:var(--muted);line-height:1.7}
+
+/* ─── PROGRAMA ─── */
+.programa-section{background:var(--surface)}
+.days-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(265px,1fr));
+  gap:1.25rem;
+  max-width:1100px;margin:3rem auto 0;
+}
+.day-card{
+  background:var(--bg);
+  border:0.5px solid var(--border);
+  border-radius:var(--r);
+  padding:2rem 1.75rem;
+  position:relative;overflow:hidden;
+  transition:border-color 0.2s;
+}
+.day-card:hover{border-color:var(--border-yellow)}
+.day-card::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:2px;
+  background:var(--yellow);opacity:0;transition:opacity 0.2s;
+}
+.day-card:hover::before{opacity:1}
+.day-num{
+  font-size:0.62rem;letter-spacing:0.18em;text-transform:uppercase;
+  color:var(--yellow);margin-bottom:0.6rem;font-weight:500;
+}
+.day-title{
+  font-family:'Syne',sans-serif;
+  font-size:1.25rem;font-weight:700;
+  color:var(--white);margin-bottom:0.85rem;line-height:1.2;
+}
+.day-desc{font-size:0.82rem;color:var(--muted);line-height:1.75}
+.day-tags{
+  display:flex;flex-wrap:wrap;gap:0.4rem;
+  margin-top:1.25rem;padding-top:1rem;
+  border-top:0.5px solid var(--border);
+}
+.tag{
+  font-size:0.6rem;letter-spacing:0.1em;text-transform:uppercase;
+  color:var(--yellow);background:var(--yellow-dim);
+  border:0.5px solid var(--border-yellow);
+  padding:0.28rem 0.65rem;border-radius:100px;font-weight:500;
+}
+
+/* ─── PROOF BAR ─── */
+.proof-bar{
+  background:var(--bg);padding:3rem clamp(1.25rem,5vw,3rem);
+  border-top:0.5px solid var(--border);
+  border-bottom:0.5px solid var(--border);
+}
+.proof-inner{
+  max-width:1100px;margin:0 auto;
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+  gap:2rem;
+}
+.proof-item{text-align:center}
+.proof-num{
+  font-family:'Playfair Display',serif;
+  font-size:2.5rem;font-weight:700;
+  color:var(--yellow);
+  text-shadow:0 0 24px rgba(244,209,34,0.35);
+  line-height:1;margin-bottom:0.4rem;
+}
+.proof-label{
+  font-size:0.7rem;letter-spacing:0.12em;text-transform:uppercase;
+  color:var(--muted);font-weight:400;
+}
+
+/* ─── TICKETS ─── */
+.tickets-section{background:var(--surface)}
+.tickets-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(270px,1fr));
+  gap:1.25rem;
+  max-width:1100px;margin:3rem auto 0;
+  align-items:start;
+}
+.ticket{
+  background:var(--bg);
+  border:0.5px solid var(--border);
+  border-radius:var(--r);
+  padding:2rem 1.75rem;
+  position:relative;
+  transition:border-color 0.2s;
+}
+.ticket:hover{border-color:var(--border-yellow)}
+.ticket.best{
+  border:1.5px solid var(--yellow);
+  box-shadow:0 0 40px rgba(244,209,34,0.08);
+}
+.best-tag{
+  position:absolute;top:-1px;left:50%;transform:translateX(-50%);
+  background:var(--yellow);color:var(--bg);
+  font-size:0.6rem;letter-spacing:0.15em;text-transform:uppercase;
+  padding:0.3rem 1rem;border-radius:0 0 8px 8px;
+  white-space:nowrap;font-weight:700;
+}
+.ticket-stars{
+  font-size:0.7rem;letter-spacing:0.1em;color:var(--yellow);
+  margin-bottom:0.75rem;opacity:0.7;
+}
+.ticket-name{
+  font-family:'Syne',sans-serif;
+  font-size:1.25rem;font-weight:700;
+  color:var(--white);margin-bottom:0.2rem;line-height:1.1;
+}
+.ticket-tagline{
+  font-size:0.75rem;color:var(--muted);
+  font-style:italic;font-family:'Playfair Display',serif;
+  margin-bottom:1.5rem;
+}
+.ticket-amount{
+  font-family:'Syne',sans-serif;
+  font-size:2.4rem;font-weight:700;
+  color:var(--white);line-height:1;margin-bottom:0.2rem;
+}
+.ticket-ars{font-size:0.72rem;color:var(--muted);margin-bottom:1rem}
+.preventa-box{
+  background:var(--yellow-dim);
+  border:0.5px solid var(--border-yellow);
+  border-radius:8px;
+  padding:0.65rem 0.85rem;
+  font-size:0.73rem;color:var(--white);
+  margin-bottom:1.5rem;line-height:1.5;
+}
+.preventa-box strong{color:var(--yellow)}
+.ticket-items{list-style:none;margin-bottom:2rem}
+.ticket-items li{
+  font-size:0.8rem;color:var(--muted);
+  padding:0.45rem 0;
+  border-bottom:0.5px solid var(--border);
+  display:flex;gap:0.6rem;align-items:flex-start;line-height:1.45;
+}
+.ticket-items li:last-child{border-bottom:none}
+.tick{color:var(--yellow);flex-shrink:0;font-size:0.75rem;margin-top:0.1rem}
+.ticket-btn{
+  display:block;text-align:center;
+  background:var(--yellow);color:var(--bg);
+  border:none;padding:0.9rem;
+  font-family:'Syne',sans-serif;font-size:0.74rem;
+  letter-spacing:0.1em;text-transform:uppercase;font-weight:700;
+  cursor:pointer;border-radius:100px;
+  text-decoration:none;width:100%;
+  transition:all 0.2s;
+  box-shadow:0 0 0 0 var(--yellow-glow);
+}
+.ticket-btn:hover{
+  box-shadow:0 0 20px 4px var(--yellow-glow);
+  transform:translateY(-1px);
+}
+.ticket-btn.outline{
+  background:transparent;color:var(--muted);
+  border:0.5px solid var(--border);
+  box-shadow:none;
+}
+.ticket-btn.outline:hover{
+  border-color:var(--border-yellow);color:var(--white);
+  box-shadow:none;transform:none;
+}
+.alumni-note{
+  text-align:center;
+  font-size:0.78rem;color:var(--muted);
+  max-width:480px;margin:2.5rem auto 0;line-height:1.7;
+}
+.alumni-note a{color:var(--yellow);text-decoration:none}
+
+/* ─── FINAL CTA ─── */
+.final-cta{
+  background:var(--bg);text-align:center;
+  padding:clamp(4rem,10vw,8rem) clamp(1.25rem,5vw,3rem);
+  position:relative;overflow:hidden;
+}
+.final-cta::before{
+  content:'';position:absolute;
+  top:50%;left:50%;transform:translate(-50%,-50%);
+  width:600px;height:600px;border-radius:50%;
+  background:radial-gradient(circle,rgba(244,209,34,0.06) 0%,transparent 70%);
+  pointer-events:none;
+}
+.final-title{
+  font-family:'Syne',sans-serif;
+  font-size:clamp(2.5rem,7vw,5.5rem);
+  font-weight:700;line-height:1.05;
+  color:var(--white);margin-bottom:1.5rem;
+  position:relative;
+}
+.final-title .si{
+  font-family:'Playfair Display',serif;
+  font-style:italic;font-weight:400;
+  color:var(--yellow);
+  text-shadow:0 0 50px rgba(244,209,34,0.5);
+}
+.final-body{
+  font-size:0.95rem;color:var(--muted);
+  max-width:420px;margin:0 auto 2.75rem;line-height:1.85;
+  position:relative;
+}
+.final-date{
+  font-size:0.7rem;letter-spacing:0.2em;text-transform:uppercase;
+  color:rgba(245,245,242,0.25);margin-top:2rem;
+}
+
+/* ─── FOOTER ─── */
+footer{
+  background:var(--surface);
+  border-top:0.5px solid var(--border);
+  padding:1.75rem clamp(1.25rem,5vw,3rem);
+  display:flex;justify-content:space-between;align-items:center;
+  flex-wrap:wrap;gap:1rem;
+}
+
+.footer-copy{
+  font-size:0.68rem;
+  color:rgba(245,245,242,0.2);letter-spacing:0.05em;
+}
+
+/* ─── ANIMATIONS ─── */
+@keyframes fadeUp{
+  from{opacity:0;transform:translateY(16px)}
+  to{opacity:1;transform:translateY(0)}
+}
+.badge{animation:fadeUp 0.5s ease both}
+.hero-eyebrow{animation:fadeUp 0.5s 0.08s ease both}
+.hero-title{animation:fadeUp 0.6s 0.14s ease both}
+.hero-subtitle{animation:fadeUp 0.5s 0.22s ease both}
+.hero-cta-row{animation:fadeUp 0.5s 0.3s ease both}
+.hero-stats{animation:fadeUp 0.5s 0.38s ease both}
+
+/* ─── MOBILE ─── */
+@media(max-width:600px){
+  .nav-link{display:none}
+  .hero-stats{gap:1.5rem}
+  .proof-inner{gap:1.5rem}
+}
+
+/* ─── TIMER ─── */
+.timer-wrap{
+  display:flex;gap:0.75rem;align-items:center;
+  margin-bottom:2rem;
+  animation:fadeUp 0.5s 0.35s ease both;
+  opacity:0;animation-fill-mode:forwards;
+}
+.timer-label{
+  font-size:0.65rem;letter-spacing:0.18em;text-transform:uppercase;
+  color:var(--muted);font-weight:400;margin-right:0.25rem;
+}
+.timer-block{
+  display:flex;flex-direction:column;align-items:center;
+  background:var(--surface2);
+  border:0.5px solid var(--border);
+  border-radius:8px;
+  padding:0.55rem 0.85rem;
+  min-width:56px;
+}
+.timer-num{
+  font-family:'Syne',sans-serif;
+  font-size:1.4rem;font-weight:700;
+  color:var(--yellow);
+  text-shadow:0 0 16px rgba(244,209,34,0.35);
+  line-height:1;
+}
+.timer-unit{
+  font-size:0.55rem;letter-spacing:0.15em;text-transform:uppercase;
+  color:var(--muted);margin-top:0.3rem;font-weight:400;
+}
+.timer-sep{
+  font-size:1.2rem;font-weight:700;color:var(--muted);
+  margin-bottom:0.8rem;
+}
+.timer-expired{
+  font-size:0.78rem;color:var(--muted);letter-spacing:0.08em;
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">Master<span class="logo-lab">Lab</span></a>
+  <div class="nav-right">
+    <a href="#programa" class="nav-link">Programa</a>
+    <a href="#tickets" class="nav-link">Tickets</a>
+    <a href="https://api.whatsapp.com/send?phone=+5493764600118&text=%C2%A1Hola%2C%20acabo%20de%20ver%20la%20web%20de%20MasterLab%20y%20quiero%20m%C3%A1s%20informaci%C3%B3n%20del%20evento!%20%F0%9F%98%8A" class="nav-cta" target="_blank">Quiero mi lugar</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg-number">ML</div>
+
+  <span class="badge">Preventa activa — hasta el 31 de mayo</span>
+  <div class="timer-wrap" id="countdown-wrap">
+    <span class="timer-label">Preventa cierra en</span>
+    <div class="timer-block"><span class="timer-num" id="cd-days">--</span><span class="timer-unit">días</span></div>
+    <span class="timer-sep">:</span>
+    <div class="timer-block"><span class="timer-num" id="cd-hours">--</span><span class="timer-unit">horas</span></div>
+    <span class="timer-sep">:</span>
+    <div class="timer-block"><span class="timer-num" id="cd-mins">--</span><span class="timer-unit">min</span></div>
+    <span class="timer-sep">:</span>
+    <div class="timer-block"><span class="timer-num" id="cd-secs">--</span><span class="timer-unit">seg</span></div>
+  </div>
+
+  <p class="hero-eyebrow">Buenos Aires · 3, 4 y 5 de Septiembre 2026</p>
+
+  <h1 class="hero-title">
+    Sabés hacer<br>
+    el trabajo.<br>
+    <span class="serif-accent">¿Lo sabe alguien más?</span>
+  </h1>
+
+  <p class="hero-subtitle">
+    Tres días para que tu técnica mejore, tu nombre circule y tu agenda se llene. Con tres referentes internacionales. En Buenos Aires. Sin que nadie aprenda nada de YouTube.
+  </p>
+
+  <div class="hero-cta-row">
+    <a href="#tickets" class="btn-yellow">Quiero mi lugar →</a>
+    <a href="#tickets" class="btn-outline">Ver el programa</a>
+  </div>
+
+  <div class="hero-stats">
+    <div class="stat-item">
+      <p class="stat-num">3</p>
+      <p class="stat-label">días de laboratorio</p>
+    </div>
+    <div class="stat-item">
+      <p class="stat-num">4</p>
+      <p class="stat-label">especialistas en escena</p>
+    </div>
+    <div class="stat-item">
+      <p class="stat-num">60</p>
+      <p class="stat-label">cupos disponibles</p>
+    </div>
+    <div class="stat-item">
+      <p class="stat-num">0</p>
+      <p class="stat-label">cosas que encontrás en YouTube</p>
+    </div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee-wrap">
+  <div class="marquee-track">
+    <span class="marquee-item">Técnica Coreana</span>
+    <span class="marquee-item accent">✦</span>
+    <span class="marquee-item">Lifting Tradicional</span>
+    <span class="marquee-item accent">✦</span>
+    <span class="marquee-item">Post Lifting</span>
+    <span class="marquee-item accent">✦</span>
+    <span class="marquee-item">Branding & Posicionamiento</span>
+    <span class="marquee-item accent">✦</span>
+    <span class="marquee-item">Práctica Supervisada</span>
+    <span class="marquee-item accent">✦</span>
+    <span class="marquee-item">Buenos Aires · Sep 2026</span>
+    <span class="marquee-item accent">✦</span>
+    <span class="marquee-item">Técnica Coreana</span>
+    <span class="marquee-item accent">✦</span>
+    <span class="marquee-item">Lifting Tradicional</span>
+    <span class="marquee-item accent">✦</span>
+    <span class="marquee-item">Post Lifting</span>
+    <span class="marquee-item accent">✦</span>
+    <span class="marquee-item">Branding & Posicionamiento</span>
+    <span class="marquee-item accent">✦</span>
+    <span class="marquee-item">Práctica Supervisada</span>
+    <span class="marquee-item accent">✦</span>
+    <span class="marquee-item">Buenos Aires · Sep 2026</span>
+    <span class="marquee-item accent">✦</span>
+  </div>
+</div>
+
+<!-- PROBLEMA -->
+<section class="problem-section">
+  <div class="problem-inner">
+    <div class="problem-left">
+      <p class="big-q">"Hago buen trabajo. ¿Por qué no crezco?"</p>
+    </div>
+    <div class="problem-right">
+      <p>
+        Esa pregunta tiene respuesta. Y no es que te falta técnica.
+        La comunicación de tu trabajo <em>no puede seguir siendo algo azaroso.</em>
+        Publicar cuando tenés ganas. Mostrar lo que se pueda. Rezar para que alguien lo vea.
+      </p>
+      <p>
+        Mientras tanto, lash artists con <strong>menos habilidad que vos</strong> tienen la agenda llena.
+        Porque aprendieron algo que casi nadie enseña junto a la técnica:
+        <em>cómo convertir lo que saben hacer en algo que el mundo reconoce.</em>
+      </p>
+      <p>
+        MasterLabs existe porque ese salto cuántico tiene que pasar en un solo lugar.
+        Técnica. Práctica supervisada. Posicionamiento real.
+        <strong>Todo en tres días. Todo con los mejores.</strong>
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- PROOF -->
+<div class="proof-bar">
+  <div class="proof-inner">
+    <div class="proof-item">
+      <p class="proof-num">3</p>
+      <p class="proof-label">referentes internacionales</p>
+    </div>
+    <div class="proof-item">
+      <p class="proof-num">🇨🇱🇦🇷🇧🇴</p>
+      <p class="proof-label">Chile · Argentina · Bolivia</p>
+    </div>
+    <div class="proof-item">
+      <p class="proof-num">60</p>
+      <p class="proof-label">cupos máximos</p>
+    </div>
+    <div class="proof-item">
+      <p class="proof-num">1</p>
+      <p class="proof-label">video listo para subir el lunes</p>
+    </div>
+  </div>
+</div>
+
+<!-- LINEUP -->
+<section class="lineup-section" id="lineup">
+  <div style="max-width:1100px;margin:0 auto">
+    <span class="eyebrow">El laboratorio está guiado por</span>
+    <h2 class="section-title">
+      Cuatro roles.<br>
+      <span class="si">Un proceso completo.</span>
+    </h2>
+    <p class="section-intro">Cada quien resuelve una parte distinta del problema. Cuando eso sucede, el precio deja de compararse con otros eventos.</p>
+  </div>
+  <div class="lineup-grid">
+    <div class="person-card">
+      <p class="person-role">Founder · Lifting Tradicional</p>
+      <h3 class="person-name">Eliana</h3>
+      <p class="person-flag">🇦🇷 Argentina</p>
+      <p class="person-desc">Lamimaker y formadora especializada en lifting de pestañas. Creó MasterLabs para construir profesionales con criterio propio. Presenta la demo de lifting tradicional y lidera toda la supervisión técnica del evento.</p>
+    </div>
+    <div class="person-card">
+      <p class="person-role">Técnica Coreana</p>
+      <h3 class="person-name">Naty</h3>
+      <p class="person-flag">🇨🇱 Chile</p>
+      <p class="person-desc">Especialista internacional en lifting coreano. Su precisión y enfoque introducen posibilidades técnicas que todavía no existen en Argentina. No viene a hablar. Viene a abrir la cabeza.</p>
+    </div>
+    <div class="person-card">
+      <p class="person-role">Post Lifting Specialist</p>
+      <h3 class="person-name">Lore</h3>
+      <p class="person-flag">🇨🇱 Chile</p>
+      <p class="person-desc">Referente internacional en post lifting y experiencia del servicio. Enseña a transformar una técnica correcta en algo que la clienta siente, recuerda y recomienda.</p>
+    </div>
+    <div class="person-card">
+      <p class="person-role">Branding & Posicionamiento</p>
+      <h3 class="person-name">Pablo</h3>
+      <p class="person-flag">🇧🇴 Bolivia</p>
+      <p class="person-desc">Consultor de marca y posicionamiento profesional. Acompaña la transición entre técnica y negocio: de saber hacerlo a que el mundo lo sepa. El Día 3 es suyo. Y salís con un video grabado y listo para subir.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PROGRAMA -->
+<section class="programa-section" id="programa">
+  <div style="max-width:1100px;margin:0 auto">
+    <span class="eyebrow">Estructura del evento</span>
+    <h2 class="section-title">
+      Tres días.<br>
+      <span class="si">Un proceso sin atajos.</span>
+    </h2>
+    <p class="section-intro">Tres etapas que se complementan. Llegar con una técnica y salir con un negocio que se nota.</p>
+  </div>
+  <div class="days-grid">
+    <div class="day-card">
+      <p class="day-num">Día 01 · Jueves 3 sep</p>
+      <h3 class="day-title">La base que cambia todo</h3>
+      <p class="day-desc">Tres demos en vivo, una por cada especialista. Coreana, tradicional, post lifting. Teoría con profundidad real, preguntas sin límite, y el contexto para que lo que viene después tenga sentido. Más certificación oficial.</p>
+      <div class="day-tags">
+        <span class="tag">Demo en vivo</span>
+        <span class="tag">Q&amp;A</span>
+        <span class="tag">Certificación</span>
+        <span class="tag">Coffee break</span>
+      </div>
+    </div>
+    <div class="day-card">
+      <p class="day-num">Día 02 · Viernes 4 sep</p>
+      <h3 class="day-title">Las manos en la técnica</h3>
+      <p class="day-desc">Práctica supervisada por las tres masters. Una por una. Aplicás lo que viste, corregís en tiempo real, preguntás lo que querés. El error con buena supervisión es el aprendizaje más caro que existe. Acá entra en el precio.</p>
+      <div class="day-tags">
+        <span class="tag">Práctica supervisada</span>
+        <span class="tag">Corrección en vivo</span>
+        <span class="tag">Cupos por técnica</span>
+      </div>
+    </div>
+    <div class="day-card">
+      <p class="day-num">Día 03 · Sábado 5 sep</p>
+      <h3 class="day-title">El lunes tu trabajo se nota</h3>
+      <p class="day-desc">Con Pablo. Ya dominás la técnica. Ahora aprendés a mostrarlo, comunicarlo y convertirlo en posicionamiento, fidelización y ventas. Salís con un video grabado, editado y listo para subir. Resultado tangible. Ninguna teoría suelta.</p>
+      <div class="day-tags">
+        <span class="tag">Branding</span>
+        <span class="tag">Contenido</span>
+        <span class="tag">Video listo</span>
+        <span class="tag">Ventas</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TICKETS -->
+<section class="tickets-section" id="tickets">
+  <div style="max-width:1100px;margin:0 auto">
+    <span class="eyebrow">Elige tu lugar</span>
+    <h2 class="section-title">
+      Tres formas<br>
+      <span class="si">de entrar al laboratorio.</span>
+    </h2>
+    <p class="section-intro">Preventa activa hasta el 31 de mayo. El Valor Fundadoras es 17% menos que el precio regular — porque decidir antes tiene premio, no descuento.</p>
+  </div>
+  <div class="tickets-grid">
+
+    <div class="ticket">
+      <p class="ticket-stars">★</p>
+      <h3 class="ticket-name">Experiencia MasterLabs</h3>
+      <p class="ticket-tagline">El acceso completo al evento</p>
+      <p class="ticket-amount">USD 650</p>
+      <p class="ticket-ars">$ 600.000 pesos argentinos</p>
+      <div class="preventa-box">
+        Valor Fundadoras: <strong>USD 539</strong> — hasta el 31/05
+      </div>
+      <ul class="ticket-items">
+        <li><span class="tick">→</span> 3 demos en vivo con las tres masters</li>
+        <li><span class="tick">→</span> Q&A ilimitado durante el evento</li>
+        <li><span class="tick">→</span> Coffee break y experiencia completa</li>
+        <li><span class="tick">→</span> Certificación oficial MasterLabs</li>
+      </ul>
+      <a href="https://api.whatsapp.com/send?phone=+5493764600118&text=%C2%A1Hola%2C%20quiero%20entrar%20al%20plan%20Experiencia%20MasterLabs%20(650%20USD)!%20%F0%9F%98%8A" class="ticket-btn outline" target="_blank">Me interesa este →</a>
+    </div>
+
+    <div class="ticket best">
+      <span class="best-tag">La mayoría elige este</span>
+      <p class="ticket-stars">★ ★</p>
+      <h3 class="ticket-name">MasterLabs + Práctica</h3>
+      <p class="ticket-tagline">El que convierte conocimiento en habilidad</p>
+      <p class="ticket-amount">USD 850</p>
+      <p class="ticket-ars">$ 800.000 pesos argentinos</p>
+      <div class="preventa-box">
+        Valor Fundadoras: <strong>USD 705</strong> — hasta el 31/05
+      </div>
+      <ul class="ticket-items">
+        <li><span class="tick">→</span> Todo lo del Ticket 1</li>
+        <li><span class="tick">→</span> 1 práctica supervisada a elección</li>
+        <li><span class="tick">→</span> Día 3: Branding &amp; Posicionamiento con Pablo</li>
+        <li><span class="tick">→</span> Video grabado y listo para subir</li>
+      </ul>
+      <a href="https://api.whatsapp.com/send?phone=+5493764600118&text=%C2%A1Hola%2C%20quiero%20entrar%20al%20plan%20MasterLabs%20%2B%20Pr%C3%A1ctica%20(850%20USD)!%20%F0%9F%98%8A" class="ticket-btn" target="_blank">Quiero este →</a>
+    </div>
+
+    <div class="ticket">
+      <p class="ticket-stars">★ ★ ★</p>
+      <h3 class="ticket-name">MasterLabs Elite</h3>
+      <p class="ticket-tagline">Para la que quiere el salto completo</p>
+      <p class="ticket-amount">USD 950</p>
+      <p class="ticket-ars">$ 900.000 pesos argentinos</p>
+      <div class="preventa-box">
+        Valor Fundadoras: <strong>USD 788</strong> — hasta el 31/05
+      </div>
+      <ul class="ticket-items">
+        <li><span class="tick">→</span> Todo lo del Ticket 1</li>
+        <li><span class="tick">→</span> 3 prácticas supervisadas (coreana · trad. · post lifting)</li>
+        <li><span class="tick">→</span> Aplicación real con las tres masters</li>
+        <li><span class="tick">→</span> Día 3: Branding &amp; Posicionamiento con Pablo</li>
+        <li><span class="tick">→</span> Video grabado y listo para subir</li>
+      </ul>
+      <a href="https://api.whatsapp.com/send?phone=+5493764600118&text=%C2%A1Hola%2C%20quiero%20entrar%20al%20plan%20MasterLabs%20Elite%20(950%20USD)!%20%F0%9F%98%8A" class="ticket-btn outline" target="_blank">Me interesa este →</a>
+    </div>
+
+  </div>
+  <p class="alumni-note">
+    ¿Sos alumna de ediciones anteriores? Consultanos por el Beneficio Comunidad Alumni — cupos limitados, solo durante la preventa. <a href="https://api.whatsapp.com/send?phone=+5493764600118&text=%C2%A1Hola%2C%20acabo%20de%20ver%20la%20web%20de%20MasterLab%20y%20quiero%20m%C3%A1s%20informaci%C3%B3n%20del%20evento!%20%F0%9F%98%8A" target="_blank">Escribinos acá →</a>
+  </p>
+</section>
+
+<!-- FINAL CTA -->
+<section class="final-cta">
+  <h2 class="final-title">
+    El lunes siguiente<br>
+    tu trabajo <span class="si">se nota.</span>
+  </h2>
+  <p class="final-body">
+    MasterLabs existe para que no tengas que construir todo esto sola. Los cupos son 60. La preventa vence el 31 de mayo.
+  </p>
+  <a href="https://api.whatsapp.com/send?phone=+5493764600118&text=%C2%A1Hola%2C%20acabo%20de%20ver%20la%20web%20de%20MasterLab%20y%20quiero%20m%C3%A1s%20informaci%C3%B3n%20del%20evento!%20%F0%9F%98%8A" class="btn-yellow" target="_blank" style="font-size:0.82rem;padding:1rem 3rem">Quiero mi lugar →</a>
+  <p class="final-date">3 · 4 · 5 de Septiembre 2026 — Buenos Aires, Argentina</p>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">Master<span class="logo-lab">Lab</span></div>
+  <span class="footer-copy">MasterLabs · Septiembre 2026 · Buenos Aires</span>
+</footer>
+
+
+<script>
+(function(){
+  var deadline = new Date('2026-05-31T23:59:59-03:00').getTime();
+  function pad(n){return n<10?'0'+n:n}
+  function tick(){
+    var now = Date.now();
+    var diff = deadline - now;
+    if(diff <= 0){
+      document.getElementById('countdown-wrap').innerHTML = '<span class="timer-expired">La preventa ha cerrado</span>';
+      return;
+    }
+    var d = Math.floor(diff/86400000);
+    var h = Math.floor((diff%86400000)/3600000);
+    var m = Math.floor((diff%3600000)/60000);
+    var s = Math.floor((diff%60000)/1000);
+    document.getElementById('cd-days').textContent = pad(d);
+    document.getElementById('cd-hours').textContent = pad(h);
+    document.getElementById('cd-mins').textContent = pad(m);
+    document.getElementById('cd-secs').textContent = pad(s);
+  }
+  tick();
+  setInterval(tick, 1000);
+})();
+</script>
+</body>
+</html>
