@@ -3,513 +3,208 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MasterLabs — Septiembre 2026</title>
+<title>MasterLab — Septiembre 2026</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-
 :root{
   --bg:#0D0D0D;
   --surface:#141414;
   --surface2:#1A1A1A;
   --yellow:#F4D122;
   --yellow-dim:rgba(244,209,34,0.12);
-  --yellow-glow:rgba(244,209,34,0.25);
+  --yellow-glow:rgba(244,209,34,0.22);
   --white:#F5F5F2;
   --muted:rgba(245,245,242,0.45);
   --border:rgba(245,245,242,0.08);
-  --border-yellow:rgba(244,209,34,0.25);
+  --border-yellow:rgba(244,209,34,0.28);
   --r:12px;
 }
-
 html{scroll-behavior:smooth}
+body{font-family:'Syne',sans-serif;background:var(--bg);color:var(--white);font-size:16px;line-height:1.6;overflow-x:hidden;-webkit-font-smoothing:antialiased}
 
-body{
-  font-family:'Syne',sans-serif;
-  background:var(--bg);
-  color:var(--white);
-  font-size:16px;
-  line-height:1.6;
-  overflow-x:hidden;
-  -webkit-font-smoothing:antialiased;
-}
-
-/* ─── NAV ─── */
-nav{
-  position:fixed;top:0;left:0;right:0;z-index:100;
-  padding:1rem 2rem;
-  display:flex;justify-content:space-between;align-items:center;
-  background:rgba(13,13,13,0.85);
-  backdrop-filter:blur(12px);
-  border-bottom:0.5px solid var(--border);
-}
-.nav-logo{
-  font-family:'Syne',sans-serif;
-  font-size:1.15rem;
-  font-weight:700;
-  letter-spacing:-0.01em;
-  color:var(--white);
-  text-decoration:none;
-  flex-shrink:0;
-}
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0.9rem 2rem;display:flex;justify-content:space-between;align-items:center;background:rgba(13,13,13,0.88);backdrop-filter:blur(12px);border-bottom:0.5px solid var(--border)}
+.nav-logo{font-family:'Syne',sans-serif;font-size:1.1rem;font-weight:700;letter-spacing:-0.01em;color:var(--white);text-decoration:none;flex-shrink:0}
 .logo-lab{color:var(--yellow)}
-.footer-logo{
-  font-family:'Syne',sans-serif;
-  font-size:0.9rem;
-  font-weight:700;
-  letter-spacing:-0.01em;
-  color:rgba(245,245,242,0.3);
-}
 .nav-right{display:flex;align-items:center;gap:1.5rem}
-.nav-link{
-  font-size:0.75rem;letter-spacing:0.1em;text-transform:uppercase;
-  color:var(--muted);text-decoration:none;font-weight:400;
-  transition:color 0.2s;
-}
+.nav-link{font-size:0.72rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);text-decoration:none;font-weight:400;transition:color 0.2s}
 .nav-link:hover{color:var(--white)}
-.nav-cta{
-  background:var(--yellow);color:var(--bg);
-  border:none;padding:0.6rem 1.4rem;
-  font-family:'Syne',sans-serif;font-size:0.72rem;
-  letter-spacing:0.1em;text-transform:uppercase;
-  cursor:pointer;border-radius:100px;font-weight:700;
-  text-decoration:none;display:inline-block;
-  transition:all 0.2s;
-  box-shadow:0 0 0 0 var(--yellow-glow);
-}
-.nav-cta:hover{
-  box-shadow:0 0 20px 4px var(--yellow-glow);
-  transform:translateY(-1px);
-}
+.nav-cta{background:var(--yellow);color:var(--bg);border:none;padding:0.55rem 1.3rem;font-family:'Syne',sans-serif;font-size:0.7rem;letter-spacing:0.1em;text-transform:uppercase;cursor:pointer;border-radius:100px;font-weight:700;text-decoration:none;display:inline-block;transition:all 0.2s;box-shadow:0 0 0 0 var(--yellow-glow)}
+.nav-cta:hover{box-shadow:0 0 18px 4px var(--yellow-glow);transform:translateY(-1px)}
 
-/* ─── HERO ─── */
-.hero{
-  min-height:100svh;
-  padding:clamp(5rem,12vw,9rem) clamp(1.25rem,5vw,3rem) clamp(3rem,6vw,5rem);
-  display:flex;flex-direction:column;justify-content:flex-end;
-  position:relative;overflow:hidden;
-}
-
-.hero-bg-number{
-  position:absolute;right:-1%;top:50%;transform:translateY(-50%);
-  font-family:'Playfair Display',serif;
-  font-size:clamp(10rem,30vw,28rem);
-  font-weight:700;font-style:italic;
-  color:rgba(244,209,34,0.04);
-  line-height:1;user-select:none;pointer-events:none;
-  letter-spacing:-0.03em;white-space:nowrap;
-}
-
-.badge{
-  display:inline-flex;align-items:center;gap:0.5rem;
-  background:var(--yellow-dim);
-  border:0.5px solid var(--border-yellow);
-  color:var(--yellow);
-  font-size:0.68rem;letter-spacing:0.15em;text-transform:uppercase;
-  padding:0.4rem 0.9rem;border-radius:100px;font-weight:500;
-  margin-bottom:1.75rem;width:fit-content;
-}
+/* HERO */
+.hero{min-height:100svh;padding:clamp(5rem,12vw,9rem) clamp(1.25rem,5vw,3rem) clamp(3rem,6vw,5rem);display:flex;flex-direction:column;justify-content:flex-end;position:relative;overflow:hidden}
+.hero-bg-number{position:absolute;right:-1%;top:50%;transform:translateY(-50%);font-family:'Playfair Display',serif;font-size:clamp(10rem,30vw,28rem);font-weight:700;font-style:italic;color:rgba(244,209,34,0.04);line-height:1;user-select:none;pointer-events:none;letter-spacing:-0.03em;white-space:nowrap}
+.badge{display:inline-flex;align-items:center;gap:0.5rem;background:var(--yellow-dim);border:0.5px solid var(--border-yellow);color:var(--yellow);font-size:0.68rem;letter-spacing:0.15em;text-transform:uppercase;padding:0.4rem 0.9rem;border-radius:100px;font-weight:500;margin-bottom:1.25rem;width:fit-content}
 .badge::before{content:"●";font-size:0.5rem;animation:pulse 2s infinite}
 @keyframes pulse{0%,100%{opacity:1}50%{opacity:0.3}}
 
-.hero-eyebrow{
-  font-size:0.72rem;letter-spacing:0.18em;text-transform:uppercase;
-  color:var(--muted);margin-bottom:1.25rem;font-weight:400;
-}
+/* TIMER */
+.timer-wrap{display:flex;flex-wrap:wrap;gap:0.6rem;align-items:center;margin-bottom:1.75rem;animation:fadeUp 0.5s 0.35s ease both;opacity:0;animation-fill-mode:forwards}
+.timer-label{font-size:0.63rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--muted);font-weight:400;margin-right:0.25rem;flex-shrink:0}
+.timer-block{display:flex;flex-direction:column;align-items:center;background:var(--surface2);border:0.5px solid var(--border);border-radius:8px;padding:0.5rem 0.75rem;min-width:52px}
+.timer-num{font-family:'Syne',sans-serif;font-size:1.3rem;font-weight:700;color:var(--yellow);text-shadow:0 0 16px rgba(244,209,34,0.35);line-height:1}
+.timer-unit{font-size:0.5rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--muted);margin-top:0.25rem;font-weight:400}
+.timer-sep{font-size:1.1rem;font-weight:700;color:var(--muted);margin-bottom:0.75rem}
+.timer-expired{font-size:0.78rem;color:var(--muted);letter-spacing:0.08em}
 
-.hero-title{
-  font-family:'Syne',sans-serif;
-  font-size:clamp(2.6rem,7vw,6.5rem);
-  font-weight:700;
-  line-height:1.02;
-  letter-spacing:-0.02em;
-  color:var(--white);
-  margin-bottom:1.5rem;
-}
-.hero-title .serif-accent{
-  font-family:'Playfair Display',serif;
-  font-style:italic;
-  font-weight:400;
-  color:var(--yellow);
-  text-shadow:0 0 40px rgba(244,209,34,0.35);
-}
-
-.hero-subtitle{
-  font-size:clamp(0.9rem,1.6vw,1.05rem);
-  color:var(--muted);
-  max-width:520px;
-  margin-bottom:2.5rem;
-  font-weight:400;
-  line-height:1.8;
-}
-
-.hero-cta-row{
-  display:flex;flex-wrap:wrap;gap:0.85rem;align-items:center;
-  margin-bottom:3.5rem;
-}
-
-.btn-yellow{
-  background:var(--yellow);color:var(--bg);
-  border:none;padding:0.9rem 2.4rem;
-  font-family:'Syne',sans-serif;font-size:0.78rem;
-  letter-spacing:0.1em;text-transform:uppercase;font-weight:700;
-  cursor:pointer;border-radius:100px;
-  text-decoration:none;display:inline-block;
-  transition:all 0.2s;
-  box-shadow:0 0 0 0 var(--yellow-glow);
-}
-.btn-yellow:hover{
-  box-shadow:0 0 28px 6px var(--yellow-glow);
-  transform:translateY(-2px);
-}
-
-.btn-outline{
-  background:transparent;color:var(--muted);
-  border:0.5px solid var(--border);
-  padding:0.9rem 2rem;
-  font-family:'Syne',sans-serif;font-size:0.78rem;
-  letter-spacing:0.08em;text-transform:uppercase;
-  cursor:pointer;border-radius:100px;
-  text-decoration:none;display:inline-block;
-  transition:all 0.2s;
-}
+.hero-eyebrow{font-size:0.72rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--muted);margin-bottom:1.25rem;font-weight:400}
+.hero-title{font-family:'Syne',sans-serif;font-size:clamp(2.6rem,7vw,6.5rem);font-weight:700;line-height:1.02;letter-spacing:-0.02em;color:var(--white);margin-bottom:1.5rem}
+.hero-title .serif-accent{font-family:'Playfair Display',serif;font-style:italic;font-weight:400;color:var(--yellow);text-shadow:0 0 40px rgba(244,209,34,0.35)}
+.hero-subtitle{font-size:clamp(0.9rem,1.6vw,1.05rem);color:var(--muted);max-width:520px;margin-bottom:2.5rem;font-weight:400;line-height:1.8}
+.hero-cta-row{display:flex;flex-wrap:wrap;gap:0.85rem;align-items:center;margin-bottom:3.5rem}
+.btn-yellow{background:var(--yellow);color:var(--bg);border:none;padding:0.9rem 2.4rem;font-family:'Syne',sans-serif;font-size:0.78rem;letter-spacing:0.1em;text-transform:uppercase;font-weight:700;cursor:pointer;border-radius:100px;text-decoration:none;display:inline-block;transition:all 0.2s;box-shadow:0 0 0 0 var(--yellow-glow)}
+.btn-yellow:hover{box-shadow:0 0 28px 6px var(--yellow-glow);transform:translateY(-2px)}
+.btn-outline{background:transparent;color:var(--muted);border:0.5px solid var(--border);padding:0.9rem 2rem;font-family:'Syne',sans-serif;font-size:0.78rem;letter-spacing:0.08em;text-transform:uppercase;cursor:pointer;border-radius:100px;text-decoration:none;display:inline-block;transition:all 0.2s}
 .btn-outline:hover{border-color:var(--border-yellow);color:var(--white)}
+.hero-stats{display:flex;flex-wrap:wrap;gap:2.5rem;padding-top:2.5rem;border-top:0.5px solid var(--border)}
+.stat-num{font-family:'Playfair Display',serif;font-size:2rem;font-weight:700;color:var(--yellow);text-shadow:0 0 20px rgba(244,209,34,0.3);line-height:1;margin-bottom:0.3rem}
+.stat-label{font-size:0.72rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);font-weight:400}
 
-.hero-stats{
-  display:flex;flex-wrap:wrap;gap:2.5rem;
-  padding-top:2.5rem;
-  border-top:0.5px solid var(--border);
-}
-.stat-item .stat-num{
-  font-family:'Playfair Display',serif;
-  font-size:2rem;font-weight:700;
-  color:var(--yellow);
-  text-shadow:0 0 20px rgba(244,209,34,0.3);
-  line-height:1;margin-bottom:0.3rem;
-}
-.stat-item .stat-label{
-  font-size:0.72rem;letter-spacing:0.1em;text-transform:uppercase;
-  color:var(--muted);font-weight:400;
-}
-
-/* ─── MARQUEE ─── */
-.marquee-wrap{
-  overflow:hidden;border-top:0.5px solid var(--border);
-  border-bottom:0.5px solid var(--border);
-  padding:0.9rem 0;background:var(--surface);
-}
-.marquee-track{
-  display:flex;gap:0;white-space:nowrap;
-  animation:marquee 18s linear infinite;
-}
-@keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
-.marquee-item{
-  font-size:0.7rem;letter-spacing:0.18em;text-transform:uppercase;
-  color:var(--muted);padding:0 2.5rem;flex-shrink:0;font-weight:400;
-}
-.marquee-item.accent{color:var(--yellow)}
-
-/* ─── SECTION SHARED ─── */
+/* SECTIONS */
 section{padding:clamp(3.5rem,8vw,6rem) clamp(1.25rem,5vw,3rem)}
+.eyebrow{font-size:0.68rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--yellow);margin-bottom:0.75rem;font-weight:500;display:block}
+.section-title{font-family:'Syne',sans-serif;font-size:clamp(1.9rem,4vw,3.2rem);font-weight:700;line-height:1.1;color:var(--white);margin-bottom:1rem}
+.section-title .si{font-family:'Playfair Display',serif;font-style:italic;font-weight:400;color:var(--yellow);text-shadow:0 0 30px rgba(244,209,34,0.3)}
+.section-intro{font-size:0.9rem;color:var(--muted);max-width:560px;line-height:1.8}
 
-.eyebrow{
-  font-size:0.68rem;letter-spacing:0.2em;text-transform:uppercase;
-  color:var(--yellow);margin-bottom:0.75rem;font-weight:500;
-  display:block;
-}
-.section-title{
-  font-family:'Syne',sans-serif;
-  font-size:clamp(1.9rem,4vw,3.2rem);
-  font-weight:700;line-height:1.1;
-  color:var(--white);margin-bottom:1rem;
-}
-.section-title .si{
-  font-family:'Playfair Display',serif;
-  font-style:italic;font-weight:400;
-  color:var(--yellow);
-  text-shadow:0 0 30px rgba(244,209,34,0.3);
-}
-.section-intro{
-  font-size:0.9rem;color:var(--muted);
-  max-width:540px;line-height:1.8;
-}
-
-/* ─── PROBLEMA ─── */
+/* PROBLEMA */
 .problem-section{background:var(--surface)}
-.problem-inner{
-  max-width:1100px;margin:0 auto;
-  display:grid;grid-template-columns:1fr 1fr;
-  gap:4rem;align-items:center;
-}
+.problem-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
 @media(max-width:700px){.problem-inner{grid-template-columns:1fr;gap:2rem}}
-.problem-left .big-q{
-  font-family:'Playfair Display',serif;
-  font-size:clamp(3rem,8vw,6rem);
-  font-weight:700;font-style:italic;
-  color:var(--yellow);
-  text-shadow:0 0 60px rgba(244,209,34,0.3);
-  line-height:1;margin-bottom:1.5rem;
-}
-.problem-right p{
-  font-size:clamp(0.92rem,1.4vw,1rem);
-  color:var(--muted);line-height:1.85;
-  margin-bottom:1.25rem;
-}
+.big-q{font-family:'Playfair Display',serif;font-size:clamp(2.5rem,7vw,5rem);font-weight:700;font-style:italic;color:var(--yellow);text-shadow:0 0 60px rgba(244,209,34,0.3);line-height:1.1;margin-bottom:1.5rem}
+.problem-right p{font-size:clamp(0.9rem,1.4vw,1rem);color:var(--muted);line-height:1.85;margin-bottom:1.25rem}
 .problem-right p strong{color:var(--white);font-weight:500}
-.problem-right p em{
-  color:var(--yellow);font-style:normal;
-  text-shadow:0 0 15px rgba(244,209,34,0.2);
-}
+.problem-right p em{color:var(--yellow);font-style:normal;text-shadow:0 0 15px rgba(244,209,34,0.2)}
 
-/* ─── LINEUP ─── */
-.lineup-section{background:var(--bg)}
-.lineup-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
-  gap:1px;
-  background:var(--border);
-  border:0.5px solid var(--border);
-  max-width:1100px;margin:3rem auto 0;
-}
-.person-card{
-  background:var(--bg);padding:2rem 1.75rem;
-  transition:background 0.25s;cursor:default;
-}
-.person-card:hover{background:var(--surface2)}
-.person-role{
-  font-size:0.63rem;letter-spacing:0.18em;text-transform:uppercase;
-  color:var(--yellow);margin-bottom:0.6rem;font-weight:500;
-}
-.person-name{
-  font-family:'Syne',sans-serif;
-  font-size:1.5rem;font-weight:700;
-  line-height:1;margin-bottom:0.4rem;color:var(--white);
-}
-.person-flag{font-size:0.8rem;color:var(--muted);margin-bottom:1rem}
-.person-desc{font-size:0.82rem;color:var(--muted);line-height:1.7}
+/* FOTO PLACEHOLDER */
+.photo-slot{background:var(--surface2);border:0.5px dashed var(--border-yellow);border-radius:var(--r);aspect-ratio:4/3;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0.5rem;color:var(--muted);font-size:0.78rem;letter-spacing:0.08em;text-transform:uppercase}
+.photo-slot svg{opacity:0.3;width:32px;height:32px}
 
-/* ─── PROGRAMA ─── */
-.programa-section{background:var(--surface)}
-.days-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(265px,1fr));
-  gap:1.25rem;
-  max-width:1100px;margin:3rem auto 0;
-}
-.day-card{
-  background:var(--bg);
-  border:0.5px solid var(--border);
-  border-radius:var(--r);
-  padding:2rem 1.75rem;
-  position:relative;overflow:hidden;
-  transition:border-color 0.2s;
-}
-.day-card:hover{border-color:var(--border-yellow)}
-.day-card::before{
-  content:'';position:absolute;top:0;left:0;right:0;height:2px;
-  background:var(--yellow);opacity:0;transition:opacity 0.2s;
-}
-.day-card:hover::before{opacity:1}
-.day-num{
-  font-size:0.62rem;letter-spacing:0.18em;text-transform:uppercase;
-  color:var(--yellow);margin-bottom:0.6rem;font-weight:500;
-}
-.day-title{
-  font-family:'Syne',sans-serif;
-  font-size:1.25rem;font-weight:700;
-  color:var(--white);margin-bottom:0.85rem;line-height:1.2;
-}
-.day-desc{font-size:0.82rem;color:var(--muted);line-height:1.75}
-.day-tags{
-  display:flex;flex-wrap:wrap;gap:0.4rem;
-  margin-top:1.25rem;padding-top:1rem;
-  border-top:0.5px solid var(--border);
-}
-.tag{
-  font-size:0.6rem;letter-spacing:0.1em;text-transform:uppercase;
-  color:var(--yellow);background:var(--yellow-dim);
-  border:0.5px solid var(--border-yellow);
-  padding:0.28rem 0.65rem;border-radius:100px;font-weight:500;
-}
-
-/* ─── PROOF BAR ─── */
-.proof-bar{
-  background:var(--bg);padding:3rem clamp(1.25rem,5vw,3rem);
-  border-top:0.5px solid var(--border);
-  border-bottom:0.5px solid var(--border);
-}
-.proof-inner{
-  max-width:1100px;margin:0 auto;
-  display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
-  gap:2rem;
-}
+/* PROOF BAR */
+.proof-bar{background:var(--bg);padding:3rem clamp(1.25rem,5vw,3rem);border-top:0.5px solid var(--border);border-bottom:0.5px solid var(--border)}
+.proof-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:2rem}
 .proof-item{text-align:center}
-.proof-num{
-  font-family:'Playfair Display',serif;
-  font-size:2.5rem;font-weight:700;
-  color:var(--yellow);
-  text-shadow:0 0 24px rgba(244,209,34,0.35);
-  line-height:1;margin-bottom:0.4rem;
-}
-.proof-label{
-  font-size:0.7rem;letter-spacing:0.12em;text-transform:uppercase;
-  color:var(--muted);font-weight:400;
-}
+.proof-num{font-family:'Playfair Display',serif;font-size:2.5rem;font-weight:700;color:var(--yellow);text-shadow:0 0 24px rgba(244,209,34,0.35);line-height:1;margin-bottom:0.4rem}
+.proof-label{font-size:0.68rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted);font-weight:400}
 
-/* ─── TICKETS ─── */
-.tickets-section{background:var(--surface)}
-.tickets-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(270px,1fr));
-  gap:1.25rem;
-  max-width:1100px;margin:3rem auto 0;
-  align-items:start;
-}
-.ticket{
-  background:var(--bg);
-  border:0.5px solid var(--border);
-  border-radius:var(--r);
-  padding:2rem 1.75rem;
-  position:relative;
-  transition:border-color 0.2s;
-}
+/* LINEUP */
+.lineup-section{background:var(--bg)}
+.lineup-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1px;background:var(--border);border:0.5px solid var(--border);max-width:1100px;margin:3rem auto 0}
+.person-card{background:var(--bg);padding:2rem 1.75rem;transition:background 0.25s}
+.person-card:hover{background:var(--surface2)}
+.person-role{font-size:0.62rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--yellow);margin-bottom:0.5rem;font-weight:500}
+.person-name{font-family:'Syne',sans-serif;font-size:1.5rem;font-weight:700;line-height:1;margin-bottom:0.25rem;color:var(--white)}
+.person-meta{font-size:0.75rem;color:var(--muted);margin-bottom:0.5rem}
+.person-ig{display:inline-flex;align-items:center;gap:0.35rem;font-size:0.72rem;color:var(--yellow);text-decoration:none;margin-bottom:1rem;transition:opacity 0.2s;opacity:0.85}
+.person-ig:hover{opacity:1}
+.person-ig svg{width:13px;height:13px;fill:var(--yellow)}
+.person-photo{margin-bottom:1rem;border-radius:8px;overflow:hidden}
+.person-desc{font-size:0.8rem;color:var(--muted);line-height:1.7}
+
+/* ITINERARIO TIMELINE */
+.timeline-section{background:var(--surface)}
+.timeline-wrap{max-width:1000px;margin:3rem auto 0;position:relative}
+.timeline-line{position:absolute;top:52px;left:calc(16.66% - 0.5px);right:calc(16.66% - 0.5px);height:1px;background:linear-gradient(90deg,var(--border-yellow),var(--border-yellow));display:none}
+@media(min-width:700px){.timeline-line{display:block}}
+.timeline-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.5rem}
+.tl-card{background:var(--bg);border:0.5px solid var(--border);border-radius:var(--r);padding:0;overflow:hidden;transition:border-color 0.2s;position:relative}
+.tl-card:hover{border-color:var(--border-yellow)}
+.tl-header{background:var(--surface2);padding:1.25rem 1.5rem;border-bottom:0.5px solid var(--border);display:flex;align-items:center;gap:1rem}
+.tl-dot{width:36px;height:36px;border-radius:50%;background:var(--yellow-dim);border:1.5px solid var(--yellow);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.tl-dot-num{font-family:'Playfair Display',serif;font-size:1rem;font-weight:700;color:var(--yellow)}
+.tl-day-label{font-size:0.6rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--yellow);font-weight:500;display:block;margin-bottom:0.15rem}
+.tl-day-name{font-family:'Syne',sans-serif;font-size:1rem;font-weight:700;color:var(--white);line-height:1}
+.tl-body{padding:1.5rem}
+.tl-narrative{font-size:0.85rem;color:var(--white);line-height:1.75;margin-bottom:1.25rem;font-weight:400}
+.tl-narrative em{color:var(--yellow);font-style:normal}
+.tl-tags{display:flex;flex-wrap:wrap;gap:0.35rem;margin-bottom:1.25rem}
+.tl-photo{border-radius:8px;overflow:hidden}
+.tag{font-size:0.58rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--yellow);background:var(--yellow-dim);border:0.5px solid var(--border-yellow);padding:0.25rem 0.6rem;border-radius:100px;font-weight:500}
+.cupo-note{font-size:0.7rem;color:var(--muted);margin-top:0.75rem;padding-top:0.75rem;border-top:0.5px solid var(--border)}
+.cupo-note strong{color:var(--white)}
+
+/* TICKETS */
+.tickets-section{background:var(--bg)}
+.tickets-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem;max-width:1100px;margin:3rem auto 0;align-items:start}
+@media(max-width:900px){.tickets-grid{grid-template-columns:1fr}}
+.ticket{background:var(--surface);border:0.5px solid var(--border);border-radius:var(--r);padding:2rem 1.75rem;position:relative;transition:border-color 0.2s}
 .ticket:hover{border-color:var(--border-yellow)}
-.ticket.best{
-  border:1.5px solid var(--yellow);
-  box-shadow:0 0 40px rgba(244,209,34,0.08);
-}
-.best-tag{
-  position:absolute;top:-1px;left:50%;transform:translateX(-50%);
-  background:var(--yellow);color:var(--bg);
-  font-size:0.6rem;letter-spacing:0.15em;text-transform:uppercase;
-  padding:0.3rem 1rem;border-radius:0 0 8px 8px;
-  white-space:nowrap;font-weight:700;
-}
-.ticket-stars{
-  font-size:0.7rem;letter-spacing:0.1em;color:var(--yellow);
-  margin-bottom:0.75rem;opacity:0.7;
-}
-.ticket-name{
-  font-family:'Syne',sans-serif;
-  font-size:1.25rem;font-weight:700;
-  color:var(--white);margin-bottom:0.2rem;line-height:1.1;
-}
-.ticket-tagline{
-  font-size:0.75rem;color:var(--muted);
-  font-style:italic;font-family:'Playfair Display',serif;
-  margin-bottom:1.5rem;
-}
-.ticket-amount{
-  font-family:'Syne',sans-serif;
-  font-size:2.4rem;font-weight:700;
-  color:var(--white);line-height:1;margin-bottom:0.2rem;
-}
-.ticket-ars{font-size:0.72rem;color:var(--muted);margin-bottom:1rem}
-.preventa-box{
-  background:var(--yellow-dim);
-  border:0.5px solid var(--border-yellow);
-  border-radius:8px;
-  padding:0.65rem 0.85rem;
-  font-size:0.73rem;color:var(--white);
-  margin-bottom:1.5rem;line-height:1.5;
-}
-.preventa-box strong{color:var(--yellow)}
-.ticket-items{list-style:none;margin-bottom:2rem}
-.ticket-items li{
-  font-size:0.8rem;color:var(--muted);
-  padding:0.45rem 0;
-  border-bottom:0.5px solid var(--border);
-  display:flex;gap:0.6rem;align-items:flex-start;line-height:1.45;
-}
+.ticket.best{border:1.5px solid var(--yellow);box-shadow:0 0 40px rgba(244,209,34,0.07)}
+.best-tag{position:absolute;top:-1px;left:50%;transform:translateX(-50%);background:var(--yellow);color:var(--bg);font-size:0.58rem;letter-spacing:0.15em;text-transform:uppercase;padding:0.28rem 1rem;border-radius:0 0 8px 8px;white-space:nowrap;font-weight:700}
+.ticket-plan-name{font-size:0.6rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--yellow);margin-bottom:0.5rem;font-weight:500}
+.ticket-name{font-family:'Syne',sans-serif;font-size:1.15rem;font-weight:700;color:var(--white);margin-bottom:0.2rem;line-height:1.1}
+.ticket-tagline{font-size:0.73rem;color:var(--muted);font-style:italic;font-family:'Playfair Display',serif;margin-bottom:1.25rem}
+
+/* Precio principal en ARS, USD chico */
+.ticket-price-main{font-family:'Syne',sans-serif;font-size:1.9rem;font-weight:700;color:var(--white);line-height:1;margin-bottom:0.15rem}
+.ticket-price-ref{font-size:0.72rem;color:var(--muted);margin-bottom:0.75rem}
+
+/* Preventa: tachado + precio con descuento */
+.preventa-box{background:var(--yellow-dim);border:0.5px solid var(--border-yellow);border-radius:8px;padding:0.6rem 0.85rem;margin-bottom:1.25rem}
+.preventa-label{font-size:0.58rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--yellow);font-weight:500;margin-bottom:0.3rem}
+.preventa-prices{display:flex;align-items:center;gap:0.75rem;flex-wrap:wrap}
+.price-old{font-size:0.8rem;color:var(--muted);text-decoration:line-through}
+.price-new-ars{font-family:'Syne',sans-serif;font-size:1.1rem;font-weight:700;color:var(--yellow)}
+.price-new-usd{font-size:0.72rem;color:var(--muted)}
+
+.ticket-day-pills{display:flex;gap:0.35rem;margin-bottom:1.25rem;flex-wrap:wrap}
+.day-pill{font-size:0.58rem;letter-spacing:0.1em;text-transform:uppercase;background:var(--surface2);border:0.5px solid var(--border);color:var(--white);padding:0.25rem 0.6rem;border-radius:100px;font-weight:500}
+
+.ticket-items{list-style:none;margin-bottom:1.75rem}
+.ticket-items li{font-size:0.78rem;color:var(--muted);padding:0.42rem 0;border-bottom:0.5px solid var(--border);display:flex;gap:0.55rem;align-items:flex-start;line-height:1.45}
 .ticket-items li:last-child{border-bottom:none}
-.tick{color:var(--yellow);flex-shrink:0;font-size:0.75rem;margin-top:0.1rem}
-.ticket-btn{
-  display:block;text-align:center;
-  background:var(--yellow);color:var(--bg);
-  border:none;padding:0.9rem;
-  font-family:'Syne',sans-serif;font-size:0.74rem;
-  letter-spacing:0.1em;text-transform:uppercase;font-weight:700;
-  cursor:pointer;border-radius:100px;
-  text-decoration:none;width:100%;
-  transition:all 0.2s;
-  box-shadow:0 0 0 0 var(--yellow-glow);
-}
-.ticket-btn:hover{
-  box-shadow:0 0 20px 4px var(--yellow-glow);
-  transform:translateY(-1px);
-}
-.ticket-btn.outline{
-  background:transparent;color:var(--muted);
-  border:0.5px solid var(--border);
-  box-shadow:none;
-}
-.ticket-btn.outline:hover{
-  border-color:var(--border-yellow);color:var(--white);
-  box-shadow:none;transform:none;
-}
-.alumni-note{
-  text-align:center;
-  font-size:0.78rem;color:var(--muted);
-  max-width:480px;margin:2.5rem auto 0;line-height:1.7;
-}
+.tick{color:var(--yellow);flex-shrink:0;font-size:0.72rem;margin-top:0.1rem}
+.ticket-cupo{font-size:0.68rem;color:var(--muted);text-align:center;margin-bottom:1rem;padding:0.4rem;background:var(--surface2);border-radius:6px}
+.ticket-cupo strong{color:var(--white)}
+.ticket-btn{display:block;text-align:center;background:var(--yellow);color:var(--bg);border:none;padding:0.85rem;font-family:'Syne',sans-serif;font-size:0.72rem;letter-spacing:0.1em;text-transform:uppercase;font-weight:700;cursor:pointer;border-radius:100px;text-decoration:none;width:100%;transition:all 0.2s;box-shadow:0 0 0 0 var(--yellow-glow)}
+.ticket-btn:hover{box-shadow:0 0 20px 4px var(--yellow-glow);transform:translateY(-1px)}
+.ticket-btn.outline{background:transparent;color:var(--muted);border:0.5px solid var(--border);box-shadow:none}
+.ticket-btn.outline:hover{border-color:var(--border-yellow);color:var(--white);box-shadow:none;transform:none}
+.alumni-note{text-align:center;font-size:0.78rem;color:var(--muted);max-width:480px;margin:2.5rem auto 0;line-height:1.7}
 .alumni-note a{color:var(--yellow);text-decoration:none}
 
-/* ─── FINAL CTA ─── */
-.final-cta{
-  background:var(--bg);text-align:center;
-  padding:clamp(4rem,10vw,8rem) clamp(1.25rem,5vw,3rem);
-  position:relative;overflow:hidden;
-}
-.final-cta::before{
-  content:'';position:absolute;
-  top:50%;left:50%;transform:translate(-50%,-50%);
-  width:600px;height:600px;border-radius:50%;
-  background:radial-gradient(circle,rgba(244,209,34,0.06) 0%,transparent 70%);
-  pointer-events:none;
-}
-.final-title{
-  font-family:'Syne',sans-serif;
-  font-size:clamp(2.5rem,7vw,5.5rem);
-  font-weight:700;line-height:1.05;
-  color:var(--white);margin-bottom:1.5rem;
-  position:relative;
-}
-.final-title .si{
-  font-family:'Playfair Display',serif;
-  font-style:italic;font-weight:400;
-  color:var(--yellow);
-  text-shadow:0 0 50px rgba(244,209,34,0.5);
-}
-.final-body{
-  font-size:0.95rem;color:var(--muted);
-  max-width:420px;margin:0 auto 2.75rem;line-height:1.85;
-  position:relative;
-}
-.final-date{
-  font-size:0.7rem;letter-spacing:0.2em;text-transform:uppercase;
-  color:rgba(245,245,242,0.25);margin-top:2rem;
-}
+/* FOTOS SECTION */
+.photos-section{background:var(--surface);padding:clamp(3rem,6vw,5rem) clamp(1.25rem,5vw,3rem)}
+.photos-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem;max-width:1100px;margin:2rem auto 0}
 
-/* ─── FOOTER ─── */
-footer{
-  background:var(--surface);
-  border-top:0.5px solid var(--border);
-  padding:1.75rem clamp(1.25rem,5vw,3rem);
-  display:flex;justify-content:space-between;align-items:center;
-  flex-wrap:wrap;gap:1rem;
-}
+/* FAQ */
+.faq-section{background:var(--bg)}
+.faq-list{max-width:760px;margin:3rem auto 0}
+.faq-item{border-bottom:0.5px solid var(--border)}
+.faq-q{width:100%;background:none;border:none;color:var(--white);font-family:'Syne',sans-serif;font-size:0.9rem;font-weight:500;text-align:left;padding:1.25rem 0;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:1rem;transition:color 0.2s}
+.faq-q:hover{color:var(--yellow)}
+.faq-icon{flex-shrink:0;font-size:1.1rem;color:var(--yellow);transition:transform 0.2s;line-height:1}
+.faq-a{max-height:0;overflow:hidden;transition:max-height 0.3s ease;font-size:0.85rem;color:var(--muted);line-height:1.8}
+.faq-a-inner{padding-bottom:1.25rem}
+.faq-item.open .faq-a{max-height:300px}
+.faq-item.open .faq-icon{transform:rotate(45deg)}
+.faq-item.open .faq-q{color:var(--yellow)}
 
-.footer-copy{
-  font-size:0.68rem;
-  color:rgba(245,245,242,0.2);letter-spacing:0.05em;
-}
+/* WPP GROUP */
+.wpp-bar{background:var(--surface2);border-top:0.5px solid var(--border);border-bottom:0.5px solid var(--border);padding:1.5rem clamp(1.25rem,5vw,3rem);text-align:center}
+.wpp-bar p{font-size:0.85rem;color:var(--muted);margin-bottom:0.75rem}
+.wpp-bar a{display:inline-flex;align-items:center;gap:0.5rem;background:#25D366;color:#fff;font-family:'Syne',sans-serif;font-size:0.75rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;padding:0.65rem 1.75rem;border-radius:100px;text-decoration:none;transition:opacity 0.2s}
+.wpp-bar a:hover{opacity:0.88}
+.wpp-bar a svg{width:16px;height:16px;fill:#fff}
 
-/* ─── ANIMATIONS ─── */
-@keyframes fadeUp{
-  from{opacity:0;transform:translateY(16px)}
-  to{opacity:1;transform:translateY(0)}
-}
+/* FINAL CTA */
+.final-cta{background:var(--bg);text-align:center;padding:clamp(4rem,10vw,8rem) clamp(1.25rem,5vw,3rem);position:relative;overflow:hidden}
+.final-cta::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(244,209,34,0.06) 0%,transparent 70%);pointer-events:none}
+.final-title{font-family:'Syne',sans-serif;font-size:clamp(2.5rem,7vw,5.5rem);font-weight:700;line-height:1.05;color:var(--white);margin-bottom:1.5rem;position:relative}
+.final-title .si{font-family:'Playfair Display',serif;font-style:italic;font-weight:400;color:var(--yellow);text-shadow:0 0 50px rgba(244,209,34,0.5)}
+.final-body{font-size:0.95rem;color:var(--muted);max-width:420px;margin:0 auto 2.75rem;line-height:1.85;position:relative}
+.final-date{font-size:0.7rem;letter-spacing:0.2em;text-transform:uppercase;color:rgba(245,245,242,0.2);margin-top:2rem}
+
+/* FOOTER */
+footer{background:var(--surface);border-top:0.5px solid var(--border);padding:1.75rem clamp(1.25rem,5vw,3rem);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
+.footer-logo{font-family:'Syne',sans-serif;font-size:0.9rem;font-weight:700;letter-spacing:-0.01em;color:rgba(245,245,242,0.3)}
+.footer-copy{font-size:0.68rem;color:rgba(245,245,242,0.2);letter-spacing:0.05em}
+
+/* ANIMATIONS */
+@keyframes fadeUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
 .badge{animation:fadeUp 0.5s ease both}
 .hero-eyebrow{animation:fadeUp 0.5s 0.08s ease both}
 .hero-title{animation:fadeUp 0.6s 0.14s ease both}
@@ -517,49 +212,111 @@ footer{
 .hero-cta-row{animation:fadeUp 0.5s 0.3s ease both}
 .hero-stats{animation:fadeUp 0.5s 0.38s ease both}
 
-/* ─── MOBILE ─── */
+/* MOBILE */
 @media(max-width:600px){
   .nav-link{display:none}
   .hero-stats{gap:1.5rem}
   .proof-inner{gap:1.5rem}
+  .tickets-grid{grid-template-columns:1fr}
 }
 
-/* ─── TIMER ─── */
-.timer-wrap{
-  display:flex;gap:0.75rem;align-items:center;
-  margin-bottom:2rem;
-  animation:fadeUp 0.5s 0.35s ease both;
-  opacity:0;animation-fill-mode:forwards;
+/* ─── PLAN COLOR VARIANTS ─── */
+.plan-white{
+  background:var(--white) !important;
+  border-color:rgba(245,245,242,0.3) !important;
 }
-.timer-label{
-  font-size:0.65rem;letter-spacing:0.18em;text-transform:uppercase;
-  color:var(--muted);font-weight:400;margin-right:0.25rem;
+.plan-white .ticket-plan-name{color:var(--bg)}
+.plan-white .ticket-name{color:var(--bg)}
+.plan-white .ticket-tagline{color:rgba(13,13,13,0.5)}
+.plan-white .ticket-price-main{color:var(--bg)}
+.plan-white .ticket-price-ref{color:rgba(13,13,13,0.45)}
+.plan-white .preventa-box{background:rgba(244,209,34,0.15);border-color:rgba(244,209,34,0.4)}
+.plan-white .preventa-label{color:#8a7200}
+.plan-white .price-old{color:rgba(13,13,13,0.35)}
+.plan-white .price-new-ars{color:var(--bg)}
+.plan-white .price-new-usd{color:rgba(13,13,13,0.45)}
+.plan-white .day-pill{background:rgba(13,13,13,0.08);border-color:rgba(13,13,13,0.15);color:var(--bg)}
+.plan-white .ticket-cupo{background:rgba(13,13,13,0.06);color:rgba(13,13,13,0.55)}
+.plan-white .ticket-cupo strong{color:var(--bg)}
+.plan-white .ticket-items li{border-color:rgba(13,13,13,0.1);color:rgba(13,13,13,0.6)}
+.plan-white .tick{color:var(--bg)}
+.plan-white .ticket-btn.outline{color:rgba(13,13,13,0.5);border-color:rgba(13,13,13,0.2)}
+.plan-white .ticket-btn.outline:hover{color:var(--bg);border-color:var(--bg)}
+
+.plan-black{
+  background:#0D0D0D !important;
+  border:1.5px solid rgba(245,245,242,0.15) !important;
 }
-.timer-block{
-  display:flex;flex-direction:column;align-items:center;
-  background:var(--surface2);
-  border:0.5px solid var(--border);
-  border-radius:8px;
-  padding:0.55rem 0.85rem;
-  min-width:56px;
+
+.plan-yellow{
+  background:var(--yellow) !important;
+  border:none !important;
+  box-shadow:none !important;
+  position:relative !important;
+  padding:2rem 1.75rem !important;
+  z-index:0;
 }
-.timer-num{
-  font-family:'Syne',sans-serif;
-  font-size:1.4rem;font-weight:700;
-  color:var(--yellow);
-  text-shadow:0 0 16px rgba(244,209,34,0.35);
-  line-height:1;
+.plan-yellow::before{
+  content:'';
+  position:absolute;
+  inset:-3px;
+  border-radius:calc(var(--r) + 3px);
+  background:conic-gradient(
+    from var(--angle,0deg),
+    transparent 0deg,
+    transparent 50deg,
+    rgba(255,255,255,0.15) 65deg,
+    rgba(255,255,255,0.7) 82deg,
+    #fff 90deg,
+    rgba(255,255,255,0.7) 98deg,
+    rgba(255,255,255,0.15) 115deg,
+    transparent 130deg,
+    transparent 360deg
+  );
+  animation:border-spin 3.8s linear infinite;
+  z-index:-1;
 }
-.timer-unit{
-  font-size:0.55rem;letter-spacing:0.15em;text-transform:uppercase;
-  color:var(--muted);margin-top:0.3rem;font-weight:400;
+.plan-yellow::after{
+  content:'';
+  position:absolute;
+  inset:3px;
+  border-radius:calc(var(--r) - 1px);
+  background:var(--yellow);
+  z-index:-1;
 }
-.timer-sep{
-  font-size:1.2rem;font-weight:700;color:var(--muted);
-  margin-bottom:0.8rem;
+@property --angle{
+  syntax:'<angle>';
+  initial-value:0deg;
+  inherits:false;
 }
-.timer-expired{
-  font-size:0.78rem;color:var(--muted);letter-spacing:0.08em;
+@keyframes border-spin{
+  to{ --angle: 360deg }
+}
+.plan-yellow .ticket-plan-name{color:rgba(13,13,13,0.55)}
+.plan-yellow .ticket-name{color:#0D0D0D}
+.plan-yellow .ticket-tagline{color:rgba(13,13,13,0.5);font-family:'Playfair Display',serif}
+.plan-yellow .ticket-price-main{color:#0D0D0D}
+.plan-yellow .ticket-price-ref{color:rgba(13,13,13,0.5)}
+.plan-yellow .preventa-box{background:rgba(255,255,255,0.38);border-color:rgba(255,255,255,0.5)}
+.plan-yellow .preventa-label{color:rgba(13,13,13,0.5)}
+.plan-yellow .price-old{color:rgba(13,13,13,0.35)}
+.plan-yellow .price-new-ars{color:#0D0D0D;font-weight:700}
+.plan-yellow .price-new-usd{color:rgba(13,13,13,0.45)}
+.plan-yellow .day-pill{background:rgba(255,255,255,0.42);border-color:rgba(255,255,255,0.55);color:#0D0D0D}
+.plan-yellow .ticket-cupo{background:rgba(255,255,255,0.42);color:rgba(13,13,13,0.65)}
+.plan-yellow .ticket-cupo strong{color:#0D0D0D}
+.plan-yellow .ticket-items li{border-color:rgba(13,13,13,0.15);color:rgba(13,13,13,0.65)}
+.plan-yellow .tick{color:#0D0D0D}
+.plan-yellow .ticket-btn.outline{background:#0D0D0D;color:var(--yellow);border-color:#0D0D0D;box-shadow:none}
+.plan-yellow .ticket-btn.outline:hover{background:#1a1a1a;box-shadow:none;transform:translateY(-1px)}
+
+.plan-white .ticket-stars{color:rgba(13,13,13,0.35)}
+
+/* Master always white inside muted text containers */
+.person-desc .nav-logo,
+.person-desc span:not(.logo-lab),
+.problem-right p span:not(.logo-lab) {
+  color: var(--white);
 }
 </style>
 </head>
@@ -571,15 +328,15 @@ footer{
   <div class="nav-right">
     <a href="#programa" class="nav-link">Programa</a>
     <a href="#tickets" class="nav-link">Tickets</a>
-    <a href="https://api.whatsapp.com/send?phone=+5493764600118&text=%C2%A1Hola%2C%20acabo%20de%20ver%20la%20web%20de%20MasterLab%20y%20quiero%20m%C3%A1s%20informaci%C3%B3n%20del%20evento!%20%F0%9F%98%8A" class="nav-cta" target="_blank">Quiero mi lugar</a>
+    <a href="https://api.whatsapp.com/send?phone=+5493764120723&text=%C2%A1Hola%2C%20acabo%20de%20ver%20la%20web%20de%20MasterLab%20y%20quiero%20m%C3%A1s%20informaci%C3%B3n%20del%20evento!%20%F0%9F%98%8A" class="nav-cta" target="_blank">Quiero mi lugar</a>
   </div>
 </nav>
 
 <!-- HERO -->
 <section class="hero">
   <div class="hero-bg-number">ML</div>
+  <span class="badge">Preventa activa — del 22 de mayo al 3 de junio · 20 hs</span>
 
-  <span class="badge">Preventa activa — hasta el 31 de mayo</span>
   <div class="timer-wrap" id="countdown-wrap">
     <span class="timer-label">Preventa cierra en</span>
     <div class="timer-block"><span class="timer-num" id="cd-days">--</span><span class="timer-unit">días</span></div>
@@ -591,34 +348,30 @@ footer{
     <div class="timer-block"><span class="timer-num" id="cd-secs">--</span><span class="timer-unit">seg</span></div>
   </div>
 
-  <p class="hero-eyebrow">Buenos Aires · 3, 4 y 5 de Septiembre 2026</p>
-
+  <p class="hero-eyebrow">Buenos Aires, Argentina · 3, 4 y 5 de Septiembre 2026</p>
   <h1 class="hero-title">
     Sabés hacer<br>
-    el trabajo.<br>
+    un buen trabajo.<br>
     <span class="serif-accent">¿Lo sabe alguien más?</span>
   </h1>
-
   <p class="hero-subtitle">
-    Tres días para que tu técnica mejore, tu nombre circule y tu agenda se llene. Con tres referentes internacionales. En Buenos Aires. Sin que nadie aprenda nada de YouTube.
+    Tres días de aprendizaje real con referentes internacionales. Técnica, práctica supervisada y posicionamiento. Sin que nadie aprenda nada de YouTube.
   </p>
-
   <div class="hero-cta-row">
     <a href="#tickets" class="btn-yellow">Quiero mi lugar →</a>
-    <a href="#tickets" class="btn-outline">Ver el programa</a>
+    <a href="#programa" class="btn-outline">Ver el programa</a>
   </div>
-
   <div class="hero-stats">
     <div class="stat-item">
       <p class="stat-num">3</p>
-      <p class="stat-label">días de laboratorio</p>
+      <p class="stat-label">días de aprendizaje</p>
     </div>
     <div class="stat-item">
       <p class="stat-num">4</p>
       <p class="stat-label">especialistas en escena</p>
     </div>
     <div class="stat-item">
-      <p class="stat-num">60</p>
+      <p class="stat-num">27</p>
       <p class="stat-label">cupos disponibles</p>
     </div>
     <div class="stat-item">
@@ -628,58 +381,17 @@ footer{
   </div>
 </section>
 
-<!-- MARQUEE -->
-<div class="marquee-wrap">
-  <div class="marquee-track">
-    <span class="marquee-item">Técnica Coreana</span>
-    <span class="marquee-item accent">✦</span>
-    <span class="marquee-item">Lifting Tradicional</span>
-    <span class="marquee-item accent">✦</span>
-    <span class="marquee-item">Post Lifting</span>
-    <span class="marquee-item accent">✦</span>
-    <span class="marquee-item">Branding & Posicionamiento</span>
-    <span class="marquee-item accent">✦</span>
-    <span class="marquee-item">Práctica Supervisada</span>
-    <span class="marquee-item accent">✦</span>
-    <span class="marquee-item">Buenos Aires · Sep 2026</span>
-    <span class="marquee-item accent">✦</span>
-    <span class="marquee-item">Técnica Coreana</span>
-    <span class="marquee-item accent">✦</span>
-    <span class="marquee-item">Lifting Tradicional</span>
-    <span class="marquee-item accent">✦</span>
-    <span class="marquee-item">Post Lifting</span>
-    <span class="marquee-item accent">✦</span>
-    <span class="marquee-item">Branding & Posicionamiento</span>
-    <span class="marquee-item accent">✦</span>
-    <span class="marquee-item">Práctica Supervisada</span>
-    <span class="marquee-item accent">✦</span>
-    <span class="marquee-item">Buenos Aires · Sep 2026</span>
-    <span class="marquee-item accent">✦</span>
-  </div>
-</div>
-
 <!-- PROBLEMA -->
 <section class="problem-section">
   <div class="problem-inner">
     <div class="problem-left">
-      <p class="big-q">"Hago buen trabajo. ¿Por qué no crezco?"</p>
+      <p class="big-q">"Hago un buen trabajo. ¿Por qué no crezco?"</p>
     </div>
     <div class="problem-right">
-      <p>
-        Esa pregunta tiene respuesta. Y no es que te falta técnica.
-        La comunicación de tu trabajo <em>no puede seguir siendo algo azaroso.</em>
-        Publicar cuando tenés ganas. Mostrar lo que se pueda. Rezar para que alguien lo vea.
-      </p>
-      <p>
-        Mientras tanto, lash artists con <strong>menos habilidad que vos</strong> tienen la agenda llena.
-        Porque aprendieron algo que casi nadie enseña junto a la técnica:
-        <em>cómo convertir lo que saben hacer en algo que el mundo reconoce.</em>
-      </p>
-      <p>
-        MasterLabs existe porque ese salto cuántico tiene que pasar en un solo lugar.
-        Técnica. Práctica supervisada. Posicionamiento real.
-        <strong>Todo en tres días. Todo con los mejores.</strong>
-      </p>
+      <p>Esa pregunta tiene respuesta. Y la técnica no es el problema.</p>
+      <p>La comunicación de tu trabajo <em>no puede seguir siendo algo azaroso.</em> Publicar cuando tenés ganas. Mostrar lo que se pueda. Rezar para que alguien lo vea.</p>
+      <p>Mientras tanto, lamimakers con <strong>menos habilidad que vos</strong> tienen la agenda llena. Porque aprendieron a convertir lo que hacen en algo que el mundo reconoce.</p>
+      <p><span style="color:var(--white)">Master</span><span class="logo-lab">Lab</span> existe para que ese salto cuántico pase en tres días. Técnica. Práctica supervisada. Posicionamiento real.</p>
     </div>
   </div>
 </section>
@@ -696,8 +408,8 @@ footer{
       <p class="proof-label">Chile · Argentina · Bolivia</p>
     </div>
     <div class="proof-item">
-      <p class="proof-num">60</p>
-      <p class="proof-label">cupos máximos</p>
+      <p class="proof-num">27</p>
+      <p class="proof-label">cupos máximos para práctica</p>
     </div>
     <div class="proof-item">
       <p class="proof-num">1</p>
@@ -710,82 +422,169 @@ footer{
 <section class="lineup-section" id="lineup">
   <div style="max-width:1100px;margin:0 auto">
     <span class="eyebrow">El laboratorio está guiado por</span>
-    <h2 class="section-title">
-      Cuatro roles.<br>
-      <span class="si">Un proceso completo.</span>
-    </h2>
+    <h2 class="section-title">Cuatro roles.<br><span class="si">Un proceso completo.</span></h2>
     <p class="section-intro">Cada quien resuelve una parte distinta del problema. Cuando eso sucede, el precio deja de compararse con otros eventos.</p>
   </div>
   <div class="lineup-grid">
+
     <div class="person-card">
       <p class="person-role">Founder · Lifting Tradicional</p>
       <h3 class="person-name">Eliana</h3>
-      <p class="person-flag">🇦🇷 Argentina</p>
-      <p class="person-desc">Lamimaker y formadora especializada en lifting de pestañas. Creó MasterLabs para construir profesionales con criterio propio. Presenta la demo de lifting tradicional y lidera toda la supervisión técnica del evento.</p>
+      <p class="person-meta">🇦🇷 Argentina</p>
+      <a href="https://instagram.com/rossclemetina" class="person-ig" target="_blank">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+        @rossclemetina
+      </a>
+      <div class="person-photo">
+        <div class="photo-slot" style="aspect-ratio:1/1">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2M12 11a4 4 0 100-8 4 4 0 000 8z"/></svg>
+          <span>foto próximamente</span>
+        </div>
+      </div>
+      <p class="person-desc">Lamimaker y formadora especializada en lifting de pestañas. Creó <span style="color:var(--white)">Master</span><span class="logo-lab">Lab</span> para construir profesionales con criterio propio. Presenta la demo de lifting tradicional y lidera toda la supervisión técnica del evento.</p>
     </div>
+
     <div class="person-card">
       <p class="person-role">Técnica Coreana</p>
-      <h3 class="person-name">Naty</h3>
-      <p class="person-flag">🇨🇱 Chile</p>
-      <p class="person-desc">Especialista internacional en lifting coreano. Su precisión y enfoque introducen posibilidades técnicas que todavía no existen en Argentina. No viene a hablar. Viene a abrir la cabeza.</p>
+      <h3 class="person-name">Natalia</h3>
+      <p class="person-meta">🇨🇱 Chile</p>
+      <a href="https://instagram.com/bellezaparatiahora_" class="person-ig" target="_blank">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+        @bellezaparatiahora_
+      </a>
+      <div class="person-photo">
+        <div class="photo-slot" style="aspect-ratio:1/1">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2M12 11a4 4 0 100-8 4 4 0 000 8z"/></svg>
+          <span>foto próximamente</span>
+        </div>
+      </div>
+      <p class="person-desc">Especialista en lifting de pestañas desde 2012 con más de 10 años formando profesionales. Ha capacitado a más de 1.000 alumnas en distintas partes del mundo y participó como jueza internacional, ponente y organizadora de eventos. Referente en técnica tradicional avanzada y técnica coreana.</p>
     </div>
+
     <div class="person-card">
       <p class="person-role">Post Lifting Specialist</p>
       <h3 class="person-name">Lore</h3>
-      <p class="person-flag">🇨🇱 Chile</p>
-      <p class="person-desc">Referente internacional en post lifting y experiencia del servicio. Enseña a transformar una técnica correcta en algo que la clienta siente, recuerda y recomienda.</p>
+      <p class="person-meta">🇨🇱 Chile</p>
+      <a href="https://instagram.com/lorereyes_ayanti" class="person-ig" target="_blank">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+        @lorereyes_ayanti
+      </a>
+      <div class="person-photo">
+        <div class="photo-slot" style="aspect-ratio:1/1">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2M12 11a4 4 0 100-8 4 4 0 000 8z"/></svg>
+          <span>foto próximamente</span>
+        </div>
+      </div>
+      <p class="person-desc">Referente internacional en post lifting y experiencia del servicio. Enseña a transformar una técnica correcta en algo que la clienta siente, recuerda y recomienda. Porque el resultado visible es solo la mitad del trabajo.</p>
     </div>
+
     <div class="person-card">
       <p class="person-role">Branding & Posicionamiento</p>
       <h3 class="person-name">Pablo</h3>
-      <p class="person-flag">🇧🇴 Bolivia</p>
-      <p class="person-desc">Consultor de marca y posicionamiento profesional. Acompaña la transición entre técnica y negocio: de saber hacerlo a que el mundo lo sepa. El Día 3 es suyo. Y salís con un video grabado y listo para subir.</p>
+      <p class="person-meta">🇧🇴 Bolivia</p>
+      <a href="https://instagram.com/themarketographer" class="person-ig" target="_blank">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+        @themarketographer
+      </a>
+      <div class="person-photo">
+        <div class="photo-slot" style="aspect-ratio:1/1">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2M12 11a4 4 0 100-8 4 4 0 000 8z"/></svg>
+          <span>foto próximamente</span>
+        </div>
+      </div>
+      <p class="person-desc">Consultor de marca y posicionamiento profesional. TEDx speaker y Speaker en Nas Nights Mexico. Acompaña la transición entre técnica y negocio: de saber hacerlo a que el mundo lo sepa. El Día 3 es suyo — y salís con un video grabado y listo para subir.</p>
     </div>
+
   </div>
 </section>
 
-<!-- PROGRAMA -->
-<section class="programa-section" id="programa">
-  <div style="max-width:1100px;margin:0 auto">
-    <span class="eyebrow">Estructura del evento</span>
-    <h2 class="section-title">
-      Tres días.<br>
-      <span class="si">Un proceso sin atajos.</span>
-    </h2>
-    <p class="section-intro">Tres etapas que se complementan. Llegar con una técnica y salir con un negocio que se nota.</p>
+<!-- ITINERARIO TIMELINE -->
+<section class="timeline-section" id="programa">
+  <div style="max-width:1000px;margin:0 auto">
+    <span class="eyebrow">Itinerario</span>
+    <h2 class="section-title">Tres días.<br><span class="si">Un proceso sin atajos.</span></h2>
+    <p class="section-intro">Cada día construye sobre el anterior. Llegás con curiosidad, salís con resultados.</p>
   </div>
-  <div class="days-grid">
-    <div class="day-card">
-      <p class="day-num">Día 01 · Jueves 3 sep</p>
-      <h3 class="day-title">La base que cambia todo</h3>
-      <p class="day-desc">Tres demos en vivo, una por cada especialista. Coreana, tradicional, post lifting. Teoría con profundidad real, preguntas sin límite, y el contexto para que lo que viene después tenga sentido. Más certificación oficial.</p>
-      <div class="day-tags">
-        <span class="tag">Demo en vivo</span>
-        <span class="tag">Q&amp;A</span>
-        <span class="tag">Certificación</span>
-        <span class="tag">Coffee break</span>
+  <div class="timeline-wrap">
+    <div class="timeline-grid">
+
+      <div class="tl-card">
+        <div class="tl-header">
+          <div class="tl-dot"><span class="tl-dot-num">1</span></div>
+          <div>
+            <span class="tl-day-label">Jueves 3 de septiembre</span>
+            <span class="tl-day-name">Conocés a las masters</span>
+          </div>
+        </div>
+        <div class="tl-body">
+          <p class="tl-narrative">El día que abre los ojos. Vas a conocer en persona a Eliana, Natalia y Lore, ver sus manos trabajar en vivo y entender de dónde viene cada técnica y por qué funciona. Tres demos. Teoría real. Preguntas sin límite. <em>El contexto que nadie te da en un curso online.</em></p>
+          <div class="tl-tags">
+            <span class="tag">3 demos en vivo</span>
+            <span class="tag">Q&amp;A</span>
+            <span class="tag">Certificación</span>
+            <span class="tag">Coffee break + Networking</span>
+          </div>
+          <div class="tl-photo">
+            <div class="photo-slot" style="aspect-ratio:16/9">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+              <span>fotos del evento aquí</span>
+            </div>
+          </div>
+          <p class="cupo-note"><strong>60 cupos</strong> — el día más grande del evento</p>
+        </div>
       </div>
-    </div>
-    <div class="day-card">
-      <p class="day-num">Día 02 · Viernes 4 sep</p>
-      <h3 class="day-title">Las manos en la técnica</h3>
-      <p class="day-desc">Práctica supervisada por las tres masters. Una por una. Aplicás lo que viste, corregís en tiempo real, preguntás lo que querés. El error con buena supervisión es el aprendizaje más caro que existe. Acá entra en el precio.</p>
-      <div class="day-tags">
-        <span class="tag">Práctica supervisada</span>
-        <span class="tag">Corrección en vivo</span>
-        <span class="tag">Cupos por técnica</span>
+
+      <div class="tl-card">
+        <div class="tl-header">
+          <div class="tl-dot"><span class="tl-dot-num">2</span></div>
+          <div>
+            <span class="tl-day-label">Viernes 4 de septiembre</span>
+            <span class="tl-day-name">Vos sos la profesional</span>
+          </div>
+        </div>
+        <div class="tl-body">
+          <p class="tl-narrative">El grupo se achica. Vas a estar en un espacio mucho más cerrado, donde las masters te ven trabajar, corrigen en tiempo real y responden lo que no se puede preguntar en un grupo grande. <em>Este es el día donde la técnica cambia de verdad.</em></p>
+          <div class="tl-tags">
+            <span class="tag">Práctica supervisada</span>
+            <span class="tag">Corrección en vivo</span>
+            <span class="tag">Grupo reducido</span>
+          </div>
+          <div class="tl-photo">
+            <div class="photo-slot" style="aspect-ratio:16/9">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+              <span>fotos del evento aquí</span>
+            </div>
+          </div>
+          <p class="cupo-note"><strong>27 cupos máximos</strong> — supervisión minuciosa</p>
+        </div>
       </div>
-    </div>
-    <div class="day-card">
-      <p class="day-num">Día 03 · Sábado 5 sep</p>
-      <h3 class="day-title">El lunes tu trabajo se nota</h3>
-      <p class="day-desc">Con Pablo. Ya dominás la técnica. Ahora aprendés a mostrarlo, comunicarlo y convertirlo en posicionamiento, fidelización y ventas. Salís con un video grabado, editado y listo para subir. Resultado tangible. Ninguna teoría suelta.</p>
-      <div class="day-tags">
-        <span class="tag">Branding</span>
-        <span class="tag">Contenido</span>
-        <span class="tag">Video listo</span>
-        <span class="tag">Ventas</span>
+
+      <div class="tl-card">
+        <div class="tl-header">
+          <div class="tl-dot"><span class="tl-dot-num">3</span></div>
+          <div>
+            <span class="tl-day-label">Sábado 5 de septiembre</span>
+            <span class="tl-day-name">El lunes se nota</span>
+          </div>
+        </div>
+        <div class="tl-body">
+          <p class="tl-narrative">Con Pablo. Ya sabés hacer el trabajo. Ahora aprendés a mostrarlo con intención, a construir tu marca y posicionarte donde están tus clientas. Y el cierre es concreto: grabás un video que apunta al dolor real de tu cliente ideal, con tu voz, tu estilo y tu historia. <em>Ningún video se va a parecer al de la de al lado.</em></p>
+          <div class="tl-tags">
+            <span class="tag">Branding</span>
+            <span class="tag">Contenido</span>
+            <span class="tag">Video listo</span>
+            <span class="tag">Posicionamiento</span>
+          </div>
+          <div class="tl-photo">
+            <div class="photo-slot" style="aspect-ratio:16/9">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+              <span>fotos del evento aquí</span>
+            </div>
+          </div>
+          <p class="cupo-note"><strong>27 cupos</strong> — incluido en planes Día 1+2+3</p>
+        </div>
       </div>
+
     </div>
   </div>
 </section>
@@ -794,74 +593,194 @@ footer{
 <section class="tickets-section" id="tickets">
   <div style="max-width:1100px;margin:0 auto">
     <span class="eyebrow">Elige tu lugar</span>
-    <h2 class="section-title">
-      Tres formas<br>
-      <span class="si">de entrar al laboratorio.</span>
-    </h2>
-    <p class="section-intro">Preventa activa hasta el 31 de mayo. El Valor Fundadoras es 17% menos que el precio regular — porque decidir antes tiene premio, no descuento.</p>
+    <h2 class="section-title">Tres formas<br><span class="si">de ser parte.</span></h2>
+    <p class="section-intro">Preventa del 22 de mayo al 3 de junio a las 20 hs. Precio en pesos para argentinas, en dólares para quienes vienen del exterior.</p>
   </div>
   <div class="tickets-grid">
 
-    <div class="ticket">
-      <p class="ticket-stars">★</p>
-      <h3 class="ticket-name">Experiencia MasterLabs</h3>
-      <p class="ticket-tagline">El acceso completo al evento</p>
-      <p class="ticket-amount">USD 650</p>
-      <p class="ticket-ars">$ 600.000 pesos argentinos</p>
+    <!-- PLAN 1 -->
+    <div class="ticket plan-white">
+      <p class="ticket-plan-name">Plan Observadora</p>
+      <h3 class="ticket-name">Solo Día 1</h3>
+      <p class="ticket-tagline">Demos en vivo, teoría y certificación</p>
+
+      <p class="ticket-price-main">$ 600.000</p>
+      <p class="ticket-price-ref">USD 650 para el exterior</p>
+
       <div class="preventa-box">
-        Valor Fundadoras: <strong>USD 539</strong> — hasta el 31/05
+        <p class="preventa-label">Precio de preventa</p>
+        <div class="preventa-prices">
+          <span class="price-old">$ 600.000</span>
+          <span class="price-new-ars">$ 497.000</span>
+          <span class="price-new-usd">· USD 539</span>
+        </div>
       </div>
+
+      <div class="ticket-day-pills">
+        <span class="day-pill">✓ Día 1</span>
+      </div>
+
+      <div class="ticket-cupo"><strong>60 cupos</strong> disponibles</div>
+
       <ul class="ticket-items">
         <li><span class="tick">→</span> 3 demos en vivo con las tres masters</li>
-        <li><span class="tick">→</span> Q&A ilimitado durante el evento</li>
-        <li><span class="tick">→</span> Coffee break y experiencia completa</li>
-        <li><span class="tick">→</span> Certificación oficial MasterLabs</li>
+        <li><span class="tick">→</span> Q&amp;A ilimitado durante el evento</li>
+        <li><span class="tick">→</span> Coffee break + Networking</li>
+        <li><span class="tick">→</span> Certificación Día 1</li>
       </ul>
-      <a href="https://api.whatsapp.com/send?phone=+5493764600118&text=%C2%A1Hola%2C%20quiero%20entrar%20al%20plan%20Experiencia%20MasterLabs%20(650%20USD)!%20%F0%9F%98%8A" class="ticket-btn outline" target="_blank">Me interesa este →</a>
+      <a href="https://api.whatsapp.com/send?phone=+5493764120723&text=%C2%A1Hola%2C%20quiero%20entrar%20al%20plan%20Experiencia%20MasterLabs%20(650%20USD)!%20%F0%9F%98%8A" class="ticket-btn outline" target="_blank">Solo quiero ver →</a>
     </div>
 
-    <div class="ticket best">
-      <span class="best-tag">La mayoría elige este</span>
-      <p class="ticket-stars">★ ★</p>
-      <h3 class="ticket-name">MasterLabs + Práctica</h3>
-      <p class="ticket-tagline">El que convierte conocimiento en habilidad</p>
-      <p class="ticket-amount">USD 850</p>
-      <p class="ticket-ars">$ 800.000 pesos argentinos</p>
+    <!-- PLAN 2 -->
+    <div class="ticket plan-black">
+      <p class="ticket-plan-name">Plan Practicante</p>
+      <h3 class="ticket-name">Los 3 días</h3>
+      <p class="ticket-tagline">1 práctica supervisada incluida</p>
+
+      <p class="ticket-price-main">$ 800.000</p>
+      <p class="ticket-price-ref">USD 850 para el exterior</p>
+
       <div class="preventa-box">
-        Valor Fundadoras: <strong>USD 705</strong> — hasta el 31/05
+        <p class="preventa-label">Precio de preventa</p>
+        <div class="preventa-prices">
+          <span class="price-old">$ 800.000</span>
+          <span class="price-new-ars">$ 663.000</span>
+          <span class="price-new-usd">· USD 705</span>
+        </div>
       </div>
+
+      <div class="ticket-day-pills">
+        <span class="day-pill">✓ Día 1</span>
+        <span class="day-pill">✓ Día 2</span>
+        <span class="day-pill">✓ Día 3</span>
+      </div>
+
+      <div class="ticket-cupo"><strong>27 cupos</strong> — la experiencia completa tiene menos espacio</div>
+
       <ul class="ticket-items">
-        <li><span class="tick">→</span> Todo lo del Ticket 1</li>
+        <li><span class="tick">→</span> Los 3 días del evento</li>
         <li><span class="tick">→</span> 1 práctica supervisada a elección</li>
+        <li><span class="tick">→</span> Corrección en tiempo real con las masters</li>
         <li><span class="tick">→</span> Día 3: Branding &amp; Posicionamiento con Pablo</li>
-        <li><span class="tick">→</span> Video grabado y listo para subir</li>
+        <li><span class="tick">→</span> Video grabado con Storytelling, listo para publicar</li>
+        <li><span class="tick">→</span> Certificación por los 3 días</li>
       </ul>
-      <a href="https://api.whatsapp.com/send?phone=+5493764600118&text=%C2%A1Hola%2C%20quiero%20entrar%20al%20plan%20MasterLabs%20%2B%20Pr%C3%A1ctica%20(850%20USD)!%20%F0%9F%98%8A" class="ticket-btn" target="_blank">Quiero este →</a>
+      <a href="https://api.whatsapp.com/send?phone=+5493764120723&text=%C2%A1Hola%2C%20quiero%20entrar%20al%20plan%20MasterLabs%20%2B%20Pr%C3%A1ctica%20(850%20USD)!%20%F0%9F%98%8A" class="ticket-btn" target="_blank">Quiero aprender haciendo →</a>
     </div>
 
-    <div class="ticket">
-      <p class="ticket-stars">★ ★ ★</p>
-      <h3 class="ticket-name">MasterLabs Elite</h3>
-      <p class="ticket-tagline">Para la que quiere el salto completo</p>
-      <p class="ticket-amount">USD 950</p>
-      <p class="ticket-ars">$ 900.000 pesos argentinos</p>
+    <!-- PLAN 3 -->
+    <div class="ticket plan-yellow">
+      <p class="ticket-plan-name">Plan Completo</p>
+      <h3 class="ticket-name">Los 3 días <em style="font-family:'Playfair Display',serif;font-style:italic;color:inherit">full</em></h3>
+      <p class="ticket-tagline">3 prácticas supervisadas incluidas</p>
+
+      <p class="ticket-price-main">$ 900.000</p>
+      <p class="ticket-price-ref">USD 950 para el exterior</p>
+
       <div class="preventa-box">
-        Valor Fundadoras: <strong>USD 788</strong> — hasta el 31/05
+        <p class="preventa-label">Precio de preventa</p>
+        <div class="preventa-prices">
+          <span class="price-old">$ 900.000</span>
+          <span class="price-new-ars">$ 747.000</span>
+          <span class="price-new-usd">· USD 788</span>
+        </div>
       </div>
+
+      <div class="ticket-day-pills">
+        <span class="day-pill">✓ Día 1</span>
+        <span class="day-pill">✓ Día 2</span>
+        <span class="day-pill">✓ Día 3</span>
+      </div>
+
+      <div class="ticket-cupo"><strong>27 cupos</strong> — supervisión minuciosa garantizada</div>
+
       <ul class="ticket-items">
-        <li><span class="tick">→</span> Todo lo del Ticket 1</li>
-        <li><span class="tick">→</span> 3 prácticas supervisadas (coreana · trad. · post lifting)</li>
-        <li><span class="tick">→</span> Aplicación real con las tres masters</li>
-        <li><span class="tick">→</span> Día 3: Branding &amp; Posicionamiento con Pablo</li>
-        <li><span class="tick">→</span> Video grabado y listo para subir</li>
+        <li><span class="tick">→</span> Todo lo anterior</li>
+        <li><span class="tick">→</span> 3 prácticas supervisadas (coreana · tradicional · post lifting)</li>
+        <li><span class="tick">→</span> Corrección personalizada con cada master</li>
       </ul>
-      <a href="https://api.whatsapp.com/send?phone=+5493764600118&text=%C2%A1Hola%2C%20quiero%20entrar%20al%20plan%20MasterLabs%20Elite%20(950%20USD)!%20%F0%9F%98%8A" class="ticket-btn outline" target="_blank">Me interesa este →</a>
+      <a href="https://api.whatsapp.com/send?phone=+5493764120723&text=%C2%A1Hola%2C%20quiero%20entrar%20al%20plan%20MasterLabs%20Elite%20(950%20USD)!%20%F0%9F%98%8A" class="ticket-btn outline" target="_blank">No me quiero perder de nada →</a>
     </div>
 
   </div>
   <p class="alumni-note">
-    ¿Sos alumna de ediciones anteriores? Consultanos por el Beneficio Comunidad Alumni — cupos limitados, solo durante la preventa. <a href="https://api.whatsapp.com/send?phone=+5493764600118&text=%C2%A1Hola%2C%20acabo%20de%20ver%20la%20web%20de%20MasterLab%20y%20quiero%20m%C3%A1s%20informaci%C3%B3n%20del%20evento!%20%F0%9F%98%8A" target="_blank">Escribinos acá →</a>
+    ¿Sos alumna de Clementina? Hay beneficios especiales para vos — consultá al momento de reservar. <a href="https://api.whatsapp.com/send?phone=+5493764120723&text=%C2%A1Hola%2C%20soy%20alumna%20de%20Clementina%20y%20quiero%20info%20sobre%20mis%20beneficios%20para%20MasterLab!%20%F0%9F%98%8A" target="_blank">Escribinos acá →</a>
   </p>
+</section>
+
+<!-- GRUPO WPP -->
+<div class="wpp-bar">
+  <p>No te pierdas de nada — <strong>entrate al grupo de avisos del evento.</strong></p>
+  <a href="https://chat.whatsapp.com/DVSwFlGbEkZ7HQJXOQDOLu" target="_blank">
+    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    Unirme al grupo
+  </a>
+</div>
+
+<!-- FAQ -->
+<section class="faq-section" id="faq">
+  <div style="max-width:1100px;margin:0 auto">
+    <span class="eyebrow">Preguntas frecuentes</span>
+    <h2 class="section-title">Todo lo que<br><span class="si">necesitás saber.</span></h2>
+  </div>
+  <div class="faq-list">
+
+    <div class="faq-item">
+      <button class="faq-q">¿En dónde será el evento? <span class="faq-icon">+</span></button>
+      <div class="faq-a"><div class="faq-a-inner">Zona Recoleta - Microcentro, Buenos Aires. Pronto lanzaremos la dirección oficial.</div></div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q">¿Hay devolución si no puedo asistir? <span class="faq-icon">+</span></button>
+      <div class="faq-a"><div class="faq-a-inner">El pago no es reembolsable ante una falta, pero sí es transferible a otra colega, siempre y cuando se notifique con al menos 15 días de anticipación.</div></div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q">¿Por qué solo 27 personas para la práctica? <span class="faq-icon">+</span></button>
+      <div class="faq-a"><div class="faq-a-inner">El cupo reducido existe exactamente para eso: para que cada participante tenga una supervisión minuciosa de las masters. Con más personas, eso no es posible.</div></div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q">Soy argentina, ¿puedo abonar en pesos? <span class="faq-icon">+</span></button>
+      <div class="faq-a"><div class="faq-a-inner">Sí. El precio en pesos está pensado para argentinas. El precio en dólares aplica para asistentes del exterior. Si sos de Chile hay otras alternativas simples — las compartimos en privado al momento de apartar el lugar.</div></div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q">Soy de Chile, ¿cómo abono? <span class="faq-icon">+</span></button>
+      <div class="faq-a"><div class="faq-a-inner">Hay alternativas especiales para quienes son de Chile y quieren abonar de forma simple. Al momento de apartar tu lugar lo charlamos por privado.</div></div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q">Soy alumna de Clementina, ¿tengo beneficios? <span class="faq-icon">+</span></button>
+      <div class="faq-a"><div class="faq-a-inner">Sí. Hay beneficios especiales para alumnas de Clementina. Comunicalo al momento de reservar tu lugar.</div></div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q">¿Qué son las prácticas supervisadas? <span class="faq-icon">+</span></button>
+      <div class="faq-a"><div class="faq-a-inner">Una práctica supervisada es exactamente lo que suena: vos trabajando sobre una modelo real, con la master al lado mirándote. Elegís qué técnica querés practicar — coreana, tradicional o post lifting — y esa master te observa, te corrige y te guía mientras trabajás.</div></div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q">¿Puedo llevar equipo de mate? <span class="faq-icon">+</span></button>
+      <div class="faq-a"><div class="faq-a-inner">Estamos en Argentina. Obvio que podés traer tu mate.</div></div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q">¿Qué necesito llevar el día de práctica? <span class="faq-icon">+</span></button>
+      <div class="faq-a"><div class="faq-a-inner"><strong>Nada.</strong> Te damos todo lo que vas a necesitar — y nada es chino.</div></div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q">¿Hasta cuándo puedo reservar mi lugar? <span class="faq-icon">+</span></button>
+      <div class="faq-a"><div class="faq-a-inner">Podés apartar tu lugar hasta 15 días antes del evento. Pero los cupos para práctica son solo 27 — si se llenan antes, se llenan. No hay lista de espera. Si ya estás pensándolo, el mejor momento para decidir es ahora.</div></div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q">¿El evento tiene lugar para hospedaje o recomendaciones para quienes viajan? <span class="faq-icon">+</span></button>
+      <div class="faq-a"><div class="faq-a-inner">No gestionamos hospedaje directamente, pero compartimos recomendaciones de zona al confirmar la dirección oficial del evento. Recoleta - Microcentro tiene muchas opciones accesibles.</div></div>
+    </div>
+
+  </div>
 </section>
 
 <!-- FINAL CTA -->
@@ -870,43 +789,45 @@ footer{
     El lunes siguiente<br>
     tu trabajo <span class="si">se nota.</span>
   </h2>
-  <p class="final-body">
-    MasterLabs existe para que no tengas que construir todo esto sola. Los cupos son 60. La preventa vence el 31 de mayo.
-  </p>
-  <a href="https://api.whatsapp.com/send?phone=+5493764600118&text=%C2%A1Hola%2C%20acabo%20de%20ver%20la%20web%20de%20MasterLab%20y%20quiero%20m%C3%A1s%20informaci%C3%B3n%20del%20evento!%20%F0%9F%98%8A" class="btn-yellow" target="_blank" style="font-size:0.82rem;padding:1rem 3rem">Quiero mi lugar →</a>
+  <p class="final-body"><span style="color:var(--white)">Master</span><span class="logo-lab">Lab</span> existe para que no tengas que construir todo esto sola. Los cupos para práctica son 27. La preventa cierra el 3 de junio a las 20 hs.</p>
+  <a href="https://api.whatsapp.com/send?phone=+5493764120723&text=%C2%A1Hola%2C%20acabo%20de%20ver%20la%20web%20de%20MasterLab%20y%20quiero%20m%C3%A1s%20informaci%C3%B3n%20del%20evento!%20%F0%9F%98%8A" class="btn-yellow" target="_blank" style="font-size:0.82rem;padding:1rem 3rem">Quiero mi lugar →</a>
   <p class="final-date">3 · 4 · 5 de Septiembre 2026 — Buenos Aires, Argentina</p>
 </section>
 
 <!-- FOOTER -->
 <footer>
   <div class="footer-logo">Master<span class="logo-lab">Lab</span></div>
-  <span class="footer-copy">MasterLabs · Septiembre 2026 · Buenos Aires</span>
+  <span class="footer-copy">Master<span class="logo-lab">Lab</span> · Septiembre 2026 · Buenos Aires</span>
 </footer>
 
-
 <script>
+// COUNTDOWN
 (function(){
-  var deadline = new Date('2026-05-31T23:59:59-03:00').getTime();
+  var deadline = new Date('2026-06-03T20:00:00-03:00').getTime();
   function pad(n){return n<10?'0'+n:n}
   function tick(){
-    var now = Date.now();
-    var diff = deadline - now;
+    var diff = deadline - Date.now();
     if(diff <= 0){
-      document.getElementById('countdown-wrap').innerHTML = '<span class="timer-expired">La preventa ha cerrado</span>';
+      document.getElementById('countdown-wrap').innerHTML='<span class="timer-expired">La preventa ha cerrado</span>';
       return;
     }
-    var d = Math.floor(diff/86400000);
-    var h = Math.floor((diff%86400000)/3600000);
-    var m = Math.floor((diff%3600000)/60000);
-    var s = Math.floor((diff%60000)/1000);
-    document.getElementById('cd-days').textContent = pad(d);
-    document.getElementById('cd-hours').textContent = pad(h);
-    document.getElementById('cd-mins').textContent = pad(m);
-    document.getElementById('cd-secs').textContent = pad(s);
+    document.getElementById('cd-days').textContent=pad(Math.floor(diff/86400000));
+    document.getElementById('cd-hours').textContent=pad(Math.floor((diff%86400000)/3600000));
+    document.getElementById('cd-mins').textContent=pad(Math.floor((diff%3600000)/60000));
+    document.getElementById('cd-secs').textContent=pad(Math.floor((diff%60000)/1000));
   }
-  tick();
-  setInterval(tick, 1000);
+  tick(); setInterval(tick,1000);
 })();
+
+// FAQ ACCORDION
+document.querySelectorAll('.faq-q').forEach(function(btn){
+  btn.addEventListener('click',function(){
+    var item=this.closest('.faq-item');
+    var isOpen=item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(function(i){i.classList.remove('open')});
+    if(!isOpen) item.classList.add('open');
+  });
+});
 </script>
 </body>
 </html>
