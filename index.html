@@ -49,14 +49,6 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0.9rem 2rem;display:
 .badge::before{content:"●";font-size:0.5rem;animation:pulse 2s infinite}
 @keyframes pulse{0%,100%{opacity:1}50%{opacity:0.3}}
 
-/* TIMER */
-.timer-wrap{display:flex;flex-wrap:wrap;gap:0.6rem;align-items:center;margin-bottom:1.75rem;animation:fadeUp 0.5s 0.35s ease both;opacity:0;animation-fill-mode:forwards}
-.timer-label{font-size:0.63rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--muted);font-weight:400;margin-right:0.25rem;flex-shrink:0}
-.timer-block{display:flex;flex-direction:column;align-items:center;background:var(--surface2);border:0.5px solid var(--border);border-radius:8px;padding:0.5rem 0.75rem;min-width:52px}
-.timer-num{font-family:'Croogla 4F',sans-serif;font-size:1.3rem;font-weight:700;color:var(--yellow);text-shadow:0 0 16px rgba(244,209,34,0.35);line-height:1}
-.timer-unit{font-size:0.5rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--muted);margin-top:0.25rem;font-weight:400}
-.timer-sep{font-size:1.1rem;font-weight:700;color:var(--muted);margin-bottom:0.75rem}
-.timer-expired{font-size:0.78rem;color:var(--muted);letter-spacing:0.08em}
 
 .hero-eyebrow{font-size:0.72rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--muted);margin-bottom:1.25rem;font-weight:400}
 .hero-title{font-family:'Croogla 4F',sans-serif;font-size:clamp(2.6rem,7vw,6.5rem);font-weight:700;line-height:1.02;letter-spacing:-0.02em;color:var(--white);margin-bottom:1.5rem}
@@ -343,19 +335,6 @@ footer{background:var(--surface);border-top:0.5px solid var(--border);padding:1.
 <!-- HERO -->
 <section class="hero">
   <div class="hero-bg-number">ML</div>
-  <span class="badge">Preventa activa — del 22 de mayo al 3 de junio · 20 hs</span>
-
-  <div class="timer-wrap" id="countdown-wrap">
-    <span class="timer-label">Preventa cierra en</span>
-    <div class="timer-block"><span class="timer-num" id="cd-days">--</span><span class="timer-unit">días</span></div>
-    <span class="timer-sep">:</span>
-    <div class="timer-block"><span class="timer-num" id="cd-hours">--</span><span class="timer-unit">horas</span></div>
-    <span class="timer-sep">:</span>
-    <div class="timer-block"><span class="timer-num" id="cd-mins">--</span><span class="timer-unit">min</span></div>
-    <span class="timer-sep">:</span>
-    <div class="timer-block"><span class="timer-num" id="cd-secs">--</span><span class="timer-unit">seg</span></div>
-  </div>
-
   <p class="hero-eyebrow">Buenos Aires, Argentina · 3, 4 y 5 de Septiembre 2026</p>
   <h1 class="hero-title">
     Sabés hacer<br>
@@ -584,7 +563,7 @@ footer{background:var(--surface);border-top:0.5px solid var(--border);padding:1.
   <div style="max-width:1100px;margin:0 auto">
     <span class="eyebrow">Elige tu lugar</span>
     <h2 class="section-title">Tres formas<br><span class="si">de ser parte.</span></h2>
-    <p class="section-intro">Preventa del 22 de mayo al 3 de junio a las 20 hs. Precio en pesos para argentinas, en dólares para quienes vienen del exterior.</p>
+    <p class="section-intro">El evento es el <strong>3, 4 y 5 de septiembre de 2026</strong> en Buenos Aires. Precio en pesos para argentinas, en dólares para quienes vienen del exterior.</p>
   </div>
   <div class="tickets-grid">
 
@@ -596,15 +575,6 @@ footer{background:var(--surface);border-top:0.5px solid var(--border);padding:1.
 
       <p class="ticket-price-main">$ 600.000</p>
       <p class="ticket-price-ref">USD 650 para el exterior</p>
-
-      <div class="preventa-box">
-        <p class="preventa-label">Precio de preventa</p>
-        <div class="preventa-prices">
-          <span class="price-old">$ 600.000</span>
-          <span class="price-new-ars">$ 497.000</span>
-          <span class="price-new-usd">· USD 539</span>
-        </div>
-      </div>
 
       <div class="ticket-day-pills">
         <span class="day-pill">✓ Día 1</span>
@@ -629,15 +599,6 @@ footer{background:var(--surface);border-top:0.5px solid var(--border);padding:1.
 
       <p class="ticket-price-main">$ 800.000</p>
       <p class="ticket-price-ref">USD 850 para el exterior</p>
-
-      <div class="preventa-box">
-        <p class="preventa-label">Precio de preventa</p>
-        <div class="preventa-prices">
-          <span class="price-old">$ 800.000</span>
-          <span class="price-new-ars">$ 663.000</span>
-          <span class="price-new-usd">· USD 705</span>
-        </div>
-      </div>
 
       <div class="ticket-day-pills">
         <span class="day-pill">✓ Día 1</span>
@@ -666,15 +627,6 @@ footer{background:var(--surface);border-top:0.5px solid var(--border);padding:1.
 
       <p class="ticket-price-main">$ 900.000</p>
       <p class="ticket-price-ref">USD 950 para el exterior</p>
-
-      <div class="preventa-box">
-        <p class="preventa-label">Precio de preventa</p>
-        <div class="preventa-prices">
-          <span class="price-old">$ 900.000</span>
-          <span class="price-new-ars">$ 747.000</span>
-          <span class="price-new-usd">· USD 788</span>
-        </div>
-      </div>
 
       <div class="ticket-day-pills">
         <span class="day-pill">✓ Día 1</span>
@@ -793,7 +745,7 @@ footer{background:var(--surface);border-top:0.5px solid var(--border);padding:1.
     El lunes siguiente<br>
     tu trabajo <span class="si">se nota.</span>
   </h2>
-  <p class="final-body"><span style="color:var(--white)">Master</span><span class="logo-lab">Lab</span> existe para que no tengas que construir todo esto sola. Los cupos para práctica son 27. La preventa cierra el 3 de junio a las 20 hs.</p>
+  <p class="final-body"><span style="color:var(--white)">Master</span><span class="logo-lab">Lab</span> existe para que no tengas que construir todo esto sola. Los cupos para práctica son 27. El evento es el <strong>3, 4 y 5 de septiembre</strong> en Buenos Aires.</p>
   <a href="https://api.whatsapp.com/send?phone=+5493764120723&text=%C2%A1Hola%2C%20Elli!%20Vengo%20de%20la%20landing%2C%20tengo%20dudas%20sobre%20el%20evento%20MasterLab." class="btn-yellow" target="_blank" style="font-size:0.82rem;padding:1rem 3rem">Quiero mi lugar →</a>
   <p class="final-date">3 · 4 · 5 de Septiembre 2026 — Buenos Aires, Argentina</p>
 </section>
@@ -805,24 +757,6 @@ footer{background:var(--surface);border-top:0.5px solid var(--border);padding:1.
 </footer>
 
 <script>
-// COUNTDOWN
-(function(){
-  var deadline = new Date('2026-06-03T20:00:00-03:00').getTime();
-  function pad(n){return n<10?'0'+n:n}
-  function tick(){
-    var diff = deadline - Date.now();
-    if(diff <= 0){
-      document.getElementById('countdown-wrap').innerHTML='<span class="timer-expired">La preventa ha cerrado</span>';
-      return;
-    }
-    document.getElementById('cd-days').textContent=pad(Math.floor(diff/86400000));
-    document.getElementById('cd-hours').textContent=pad(Math.floor((diff%86400000)/3600000));
-    document.getElementById('cd-mins').textContent=pad(Math.floor((diff%3600000)/60000));
-    document.getElementById('cd-secs').textContent=pad(Math.floor((diff%60000)/1000));
-  }
-  tick(); setInterval(tick,1000);
-})();
-
 // FAQ ACCORDION
 document.querySelectorAll('.faq-q').forEach(function(btn){
   btn.addEventListener('click',function(){
