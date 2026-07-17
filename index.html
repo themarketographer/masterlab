@@ -788,5 +788,84 @@ document.querySelectorAll('.faq-q').forEach(function(btn){
   });
 });
 </script>
+
+<script>
+// ── Meta CAPI + Pixel Event Tracker ─────────────────────────────────────
+function getCookie(name) {
+  var match = document.cookie.match(new RegExp('(^| )' + name + '=([^;]+)'));
+  return match ? match[2] : null;
+}
+
+function sendCAPI(eventName, contentName) {
+  var payload = {
+    event_name: eventName,
+    event_source_url: window.location.href,
+    client_user_agent: navigator.userAgent,
+    fbc: getCookie('_fbc'),
+    fbp: getCookie('_fbp'),
+    content_name: contentName || null,
+  };
+  fetch('/.netlify/functions/capi', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(payload),
+  }).catch(function() {});
+}
+
+// ViewContent on page load
+window.addEventListener('load', function() {
+  if (typeof fbq !== 'undefined') fbq('track', 'ViewContent');
+  sendCAPI('ViewContent');
+});
+
+// Attach events to all WA buttons
+document.addEventListener('DOMContentLoaded', function() {
+  document.querySelectorAll('a[href*="whatsapp"]').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      var href = this.href || '';
+      var eventName, contentName;
+
+      if (href.includes('OBSERVADORA')) {
+        eventName = 'CompleteRegistration';
+        contentName = 'Plan Observadora';
+      } else if (href.includes('PRACTICANTE')) {
+        eventName = 'CompleteRegistration';
+        contentName = 'Plan Practicante';
+      } else if (href.includes('COMPLETO')) {
+        eventName = 'CompleteRegistration';
+        contentName = 'Plan Completo';
+      } else if (href.includes('alumna')) {
+        eventName = 'Contact';
+        contentName = 'Alumni Clementina';
+      } else if (href.includes('tarjeta')) {
+        eventName = 'Contact';
+        contentName = 'Cuotas Tarjeta';
+      } else {
+        eventName = 'Contact';
+        contentName = 'General';
+      }
+
+      if (typeof fbq !== 'undefined') {
+        if (eventName === 'CompleteRegistration') {
+          fbq('track', 'CompleteRegistration', { content_name: contentName });
+        } else {
+          fbq('track', 'Contact');
+        }
+      }
+      sendCAPI(eventName, contentName);
+    });
+  });
+
+  // Group WA link
+  var groupLink = document.querySelector('a[href*="chat.whatsapp"]');
+  if (groupLink) {
+    groupLink.addEventListener('click', function() {
+      if (typeof fbq !== 'undefined') fbq('track', 'Contact');
+      sendCAPI('Contact', 'Grupo WhatsApp');
+    });
+  }
+});
+</script>
+
 </body>
 </html>
