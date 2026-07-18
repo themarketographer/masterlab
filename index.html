@@ -90,6 +90,32 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0.9rem 2rem;display:
   object-fit:cover;
   background:#000;
 }
+.hero-video-play-btn{
+  position:absolute;inset:0;
+  display:flex;align-items:center;justify-content:center;
+  background:rgba(0,0,0,0.25);
+  cursor:pointer;
+  transition:opacity 0.3s ease;
+  z-index:2;
+}
+.hero-video-play-btn.hidden{
+  opacity:0;
+  pointer-events:none;
+}
+.hero-video-play-circle{
+  width:76px;height:76px;
+  border-radius:50%;
+  background:var(--yellow);
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 0 40px rgba(244,209,34,0.5);
+  transition:transform 0.2s ease;
+}
+.hero-video-play-btn:hover .hero-video-play-circle{transform:scale(1.08)}
+.hero-video-play-circle svg{width:28px;height:28px;fill:#0D0D0D;margin-left:4px}
+@media(max-width:900px){
+  .hero-video-play-circle{width:60px;height:60px}
+  .hero-video-play-circle svg{width:22px;height:22px}
+}
 @media(max-width:900px){
   .hero-grid{
     grid-template-columns:1fr;
@@ -409,9 +435,14 @@ footer{background:var(--surface);border-top:0.5px solid var(--border);padding:1.
       </p>
     </div>
     <div class="hero-video-wrap">
-      <video controls autoplay muted loop playsinline preload="auto">
+      <video id="heroVsl" controls playsinline preload="metadata">
         <source src="https://www.dropbox.com/scl/fi/t5q31h2xu9r96fs8x9ula/VSL1.mp4?rlkey=7qpomldknk6evyoh7sx24vcpq&st=m451dygu&raw=1" type="video/mp4">
       </video>
+      <div class="hero-video-play-btn" id="heroVslPlayBtn">
+        <div class="hero-video-play-circle">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><polygon points="5,3 19,12 5,21"/></svg>
+        </div>
+      </div>
     </div>
     <div class="hero-cta-col">
       <div class="hero-cta-row" style="margin-bottom:0">
@@ -923,5 +954,25 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 </script>
 
+<script>
+(function(){
+  var video = document.getElementById('heroVsl');
+  var playBtn = document.getElementById('heroVslPlayBtn');
+  if (!video || !playBtn) return;
+
+  playBtn.addEventListener('click', function(){
+    video.muted = false;
+    video.volume = 1;
+    video.play();
+  });
+
+  function hideOverlay(){ playBtn.classList.add('hidden'); }
+  function showOverlay(){ playBtn.classList.remove('hidden'); }
+
+  video.addEventListener('play', hideOverlay);
+  video.addEventListener('pause', showOverlay);
+  video.addEventListener('ended', showOverlay);
+})();
+</script>
 </body>
 </html>
