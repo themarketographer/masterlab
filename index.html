@@ -61,8 +61,13 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0.9rem 2rem;display:
 .nav-cta:hover{box-shadow:0 0 18px 4px var(--yellow-glow);transform:translateY(-1px)}
 
 /* HERO */
-.hero{min-height:100svh;padding:clamp(5rem,12vw,9rem) clamp(1.25rem,5vw,3rem) clamp(3rem,6vw,5rem);display:flex;flex-direction:column;justify-content:flex-end;position:relative;overflow:hidden}
-.hero-bg-number{position:absolute;right:-1%;top:50%;transform:translateY(-50%);font-family:'Playfair Display',serif;font-size:clamp(10rem,30vw,28rem);font-weight:700;font-style:italic;color:rgba(244,209,34,0.04);line-height:1;user-select:none;pointer-events:none;letter-spacing:-0.03em;white-space:nowrap}
+.hero{min-height:100svh;padding:clamp(5rem,12vw,9rem) clamp(1.25rem,5vw,3rem) clamp(3rem,6vw,5rem);display:flex;flex-direction:column;justify-content:center;position:relative;overflow:hidden}
+.hero-grid{display:grid;grid-template-columns:1.1fr 0.9fr;gap:clamp(2rem,5vw,4rem);align-items:center;width:100%}
+@media(max-width:900px){.hero-grid{grid-template-columns:1fr}}
+.hero-text{display:flex;flex-direction:column}
+.hero-video-wrap{position:relative;width:100%;border-radius:16px;overflow:hidden;background:var(--surface2);border:0.5px solid var(--border);box-shadow:0 0 60px rgba(244,209,34,0.06)}
+.hero-video-wrap video{width:100%;height:100%;display:block;aspect-ratio:9/16;object-fit:cover;max-height:640px}
+@media(max-width:900px){.hero-video-wrap video{aspect-ratio:16/9;max-height:400px}}
 .badge{display:inline-flex;align-items:center;gap:0.5rem;background:var(--yellow-dim);border:0.5px solid var(--border-yellow);color:var(--yellow);font-size:0.68rem;letter-spacing:0.15em;text-transform:uppercase;padding:0.4rem 0.9rem;border-radius:100px;font-weight:500;margin-bottom:1.25rem;width:fit-content}
 .badge::before{content:"●";font-size:0.5rem;animation:pulse 2s infinite}
 @keyframes pulse{0%,100%{opacity:1}50%{opacity:0.3}}
@@ -352,36 +357,44 @@ footer{background:var(--surface);border-top:0.5px solid var(--border);padding:1.
 
 <!-- HERO -->
 <section class="hero">
-  <div class="hero-bg-number">ML</div>
-  <p class="hero-eyebrow">Buenos Aires, Argentina · 3, 4 y 5 de Septiembre 2026</p>
-  <h1 class="hero-title">
-    Sabés hacer<br>
-    un buen trabajo.<br>
-    <span class="serif-accent">¿Lo sabe alguien más?</span>
-  </h1>
-  <p class="hero-subtitle">
-    Tres días de aprendizaje real con referentes internacionales. Técnica, práctica supervisada y posicionamiento. Sin que nadie aprenda nada de YouTube.
-  </p>
-  <div class="hero-cta-row">
-    <a href="#tickets" class="btn-yellow">Quiero mi lugar →</a>
-    <a href="#programa" class="btn-outline">Ver el programa</a>
-  </div>
-  <div class="hero-stats">
-    <div class="stat-item">
-      <p class="stat-num">3</p>
-      <p class="stat-label">días de aprendizaje</p>
+  <div class="hero-grid">
+    <div class="hero-text">
+      <p class="hero-eyebrow">Buenos Aires, Argentina · 3, 4 y 5 de Septiembre 2026</p>
+      <h1 class="hero-title">
+        Sabés hacer<br>
+        un buen trabajo.<br>
+        <span class="serif-accent">¿Lo sabe alguien más?</span>
+      </h1>
+      <p class="hero-subtitle">
+        Tres días de aprendizaje real con referentes internacionales. Técnica, práctica supervisada y posicionamiento. Sin que nadie aprenda nada de YouTube.
+      </p>
+      <div class="hero-cta-row">
+        <a href="#tickets" class="btn-yellow">Quiero mi lugar →</a>
+        <a href="#programa" class="btn-outline">Ver el programa</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat-item">
+          <p class="stat-num">3</p>
+          <p class="stat-label">días de aprendizaje</p>
+        </div>
+        <div class="stat-item">
+          <p class="stat-num">4</p>
+          <p class="stat-label">especialistas en escena</p>
+        </div>
+        <div class="stat-item">
+          <p class="stat-num">27</p>
+          <p class="stat-label">cupos disponibles</p>
+        </div>
+        <div class="stat-item">
+          <p class="stat-num">0</p>
+          <p class="stat-label">cosas que encontrás en YouTube</p>
+        </div>
+      </div>
     </div>
-    <div class="stat-item">
-      <p class="stat-num">4</p>
-      <p class="stat-label">especialistas en escena</p>
-    </div>
-    <div class="stat-item">
-      <p class="stat-num">27</p>
-      <p class="stat-label">cupos disponibles</p>
-    </div>
-    <div class="stat-item">
-      <p class="stat-num">0</p>
-      <p class="stat-label">cosas que encontrás en YouTube</p>
+    <div class="hero-video-wrap">
+      <video controls playsinline preload="metadata">
+        <source src="https://www.dropbox.com/scl/fi/t5q31h2xu9r96fs8x9ula/VSL1.mp4?rlkey=7qpomldknk6evyoh7sx24vcpq&st=m451dygu&raw=1" type="video/mp4">
+      </video>
     </div>
   </div>
 </section>
