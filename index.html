@@ -67,13 +67,14 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0.9rem 2rem;display:
   grid-template-columns:1.1fr 0.9fr;
   grid-template-areas:
     "intro video"
-    "actions video";
-  gap:clamp(1.5rem,4vw,3rem) clamp(2rem,5vw,4rem);
+    "cta stats";
+  gap:clamp(1.5rem,4vw,2.5rem) clamp(2rem,5vw,4rem);
   align-items:start;
   width:100%;
 }
 .hero-intro{grid-area:intro}
-.hero-actions{grid-area:actions}
+.hero-cta-col{grid-area:cta;display:flex;align-items:center}
+.hero-stats-col{grid-area:stats}
 .hero-video-wrap{
   grid-area:video;
   align-self:start;
@@ -95,8 +96,11 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0.9rem 2rem;display:
     grid-template-areas:
       "intro"
       "video"
-      "actions";
+      "cta"
+      "stats";
   }
+  .hero-stats-col{border-top:none;padding-top:0}
+  .hero-stats{border-top:0.5px solid var(--border);padding-top:1.5rem}
   .hero-video-wrap{
     aspect-ratio:16/9;
     margin:0 auto;
@@ -117,7 +121,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0.9rem 2rem;display:
 .btn-yellow:hover{box-shadow:0 0 28px 6px var(--yellow-glow);transform:translateY(-2px)}
 .btn-outline{background:transparent;color:var(--muted);border:0.5px solid var(--border);padding:0.9rem 2rem;font-family:'Croogla 4F',sans-serif;font-size:0.78rem;letter-spacing:0.08em;text-transform:uppercase;cursor:pointer;border-radius:100px;text-decoration:none;display:inline-block;transition:all 0.2s}
 .btn-outline:hover{border-color:var(--border-yellow);color:var(--white)}
-.hero-stats{display:flex;flex-wrap:wrap;gap:2.5rem;padding-top:2.5rem;border-top:0.5px solid var(--border)}
+.hero-stats{display:flex;flex-wrap:wrap;gap:1.75rem 2rem;padding-top:1.25rem;border-top:0.5px solid var(--border)}
 .stat-num{font-family:'Playfair Display',serif;font-size:2rem;font-weight:700;color:var(--yellow);text-shadow:0 0 20px rgba(244,209,34,0.3);line-height:1;margin-bottom:0.3rem}
 .stat-label{font-size:0.72rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);font-weight:400}
 
@@ -409,11 +413,13 @@ footer{background:var(--surface);border-top:0.5px solid var(--border);padding:1.
         <source src="https://www.dropbox.com/scl/fi/t5q31h2xu9r96fs8x9ula/VSL1.mp4?rlkey=7qpomldknk6evyoh7sx24vcpq&st=m451dygu&raw=1" type="video/mp4">
       </video>
     </div>
-    <div class="hero-actions">
-      <div class="hero-cta-row">
+    <div class="hero-cta-col">
+      <div class="hero-cta-row" style="margin-bottom:0">
         <a href="#tickets" class="btn-yellow">Quiero mi lugar →</a>
         <a href="#programa" class="btn-outline">Ver el programa</a>
       </div>
+    </div>
+    <div class="hero-stats-col">
       <div class="hero-stats">
         <div class="stat-item">
           <p class="stat-num">3</p>
