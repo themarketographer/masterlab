@@ -50,6 +50,7 @@ exports.handler = async function (event) {
     const body = JSON.parse(event.body);
     const {
       event_name,
+      event_id,
       event_source_url,
       client_ip_address,
       client_user_agent,
@@ -59,7 +60,13 @@ exports.handler = async function (event) {
     } = body;
 
     const eventTime = Math.floor(Date.now() / 1000);
-    const eventId = `${event_name}_${eventTime}_${Math.random().toString(36).slice(2, 9)}`;
+
+    // Usamos el event_id que manda el cliente (compartido con el pixel del navegador)
+    // para que Meta pueda deduplicar. Si por algún motivo no llega, generamos uno de
+    // respaldo para no perder el evento, aunque en ese caso no habrá deduplicación.
+    const eventId =
+      event_id ||
+      `${event_name}_${eventTime}_${Math.random().toString(36).slice(2, 9)}`;
 
     const payload = {
       data: [
@@ -87,7 +94,7 @@ exports.handler = async function (event) {
     return {
       statusCode: 200,
       headers: { 'Access-Control-Allow-Origin': '*' },
-      body: JSON.stringify({ ok: true, result }),
+      body: JSON.stringify({ ok: true, result, event_id: eventId }),
     };
   } catch (err) {
     return {
