@@ -877,15 +877,24 @@ document.querySelectorAll('.faq-q').forEach(function(btn){
 </script>
 
 <script>
-// ── Meta CAPI + Pixel Event Tracker ─────────────────────────────────────
+// ── Meta CAPI + Pixel Event Tracker (con event_id compartido para deduplicación) ──
 function getCookie(name) {
   var match = document.cookie.match(new RegExp('(^| )' + name + '=([^;]+)'));
   return match ? match[2] : null;
 }
 
-function sendCAPI(eventName, contentName) {
+function generateEventId() {
+  if (typeof crypto !== 'undefined' && crypto.randomUUID) {
+    return crypto.randomUUID();
+  }
+  // Fallback para navegadores viejos sin crypto.randomUUID
+  return 'evt_' + Date.now() + '_' + Math.random().toString(36).slice(2, 11);
+}
+
+function sendCAPI(eventName, contentName, eventId) {
   var payload = {
     event_name: eventName,
+    event_id: eventId,
     event_source_url: window.location.href,
     client_user_agent: navigator.userAgent,
     fbc: getCookie('_fbc'),
@@ -899,10 +908,19 @@ function sendCAPI(eventName, contentName) {
   }).catch(function() {});
 }
 
+function trackBoth(eventName, contentName) {
+  var eventId = generateEventId();
+
+  if (typeof fbq !== 'undefined') {
+    var customData = contentName ? { content_name: contentName } : {};
+    fbq('track', eventName, customData, { eventID: eventId });
+  }
+  sendCAPI(eventName, contentName, eventId);
+}
+
 // ViewContent on page load
 window.addEventListener('load', function() {
-  if (typeof fbq !== 'undefined') fbq('track', 'ViewContent');
-  sendCAPI('ViewContent');
+  trackBoth('ViewContent', null);
 });
 
 // Attach events to all WA buttons
@@ -932,14 +950,7 @@ document.addEventListener('DOMContentLoaded', function() {
         contentName = 'General';
       }
 
-      if (typeof fbq !== 'undefined') {
-        if (eventName === 'CompleteRegistration') {
-          fbq('track', 'CompleteRegistration', { content_name: contentName });
-        } else {
-          fbq('track', 'Contact');
-        }
-      }
-      sendCAPI(eventName, contentName);
+      trackBoth(eventName, contentName);
     });
   });
 
@@ -947,8 +958,7 @@ document.addEventListener('DOMContentLoaded', function() {
   var groupLink = document.querySelector('a[href*="chat.whatsapp"]');
   if (groupLink) {
     groupLink.addEventListener('click', function() {
-      if (typeof fbq !== 'undefined') fbq('track', 'Contact');
-      sendCAPI('Contact', 'Grupo WhatsApp');
+      trackBoth('Contact', 'Grupo WhatsApp');
     });
   }
 });
